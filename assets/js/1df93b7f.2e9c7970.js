@@ -1,0 +1,1 @@
+"use strict";(globalThis.webpackChunkpub=globalThis.webpackChunkpub||[]).push([[4583],{6866:(u,b,a)=>{a.r(b),a.d(b,{default:()=>s});a(6540);var l=a(6347),r=a(4848);function s(){return(0,r.jsx)(l.rd,{to:"/blog"})}}}]);
