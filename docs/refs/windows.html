@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="zh-Hans" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-refs/windows" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.9.1">
+<title data-rh="true">Windows | Fan&#x27;s life</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://only1zf.com/img/docusaurus-social-card.jpg"><meta data-rh="true" name="twitter:image" content="https://only1zf.com/img/docusaurus-social-card.jpg"><meta data-rh="true" property="og:url" content="https://only1zf.com/docs/refs/windows"><meta data-rh="true" property="og:locale" content="zh_Hans"><meta data-rh="true" name="docusaurus_locale" content="zh-Hans"><meta data-rh="true" name="docsearch:language" content="zh-Hans"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Windows | Fan&#x27;s life"><meta data-rh="true" name="description" content="1. WSL2 portproxy"><meta data-rh="true" property="og:description" content="1. WSL2 portproxy"><link data-rh="true" rel="icon" href="/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://only1zf.com/docs/refs/windows"><link data-rh="true" rel="alternate" href="https://only1zf.com/docs/refs/windows" hreflang="zh-Hans"><link data-rh="true" rel="alternate" href="https://only1zf.com/docs/refs/windows" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Windows","item":"https://only1zf.com/docs/refs/windows"}]}</script><link rel="stylesheet" href="/assets/css/styles.5bb4ad6d.css">
+<script src="/assets/js/runtime~main.7ce6f29d.js" defer="defer"></script>
+<script src="/assets/js/main.7e07d5e1.js" defer="defer"></script>
+</head>
+<body class="navigation-with-keyboard">
+<svg style="display: none;"><defs>
+<symbol id="theme-svg-external-link" viewBox="0 0 24 24"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||"light"),document.documentElement.setAttribute("data-theme-choice",t||"light")}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><link rel="preload" as="image" href="/img/logo.svg"><div role="region" aria-label="跳到主要内容"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">跳到主要内容</a></div><nav aria-label="主导航" class="theme-layout-navbar navbar navbar--fixed-top"><div class="navbar__inner"><div class="theme-layout-navbar-left navbar__items"><button aria-label="切换导航栏" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/"><div class="navbar__logo"><img src="/img/logo.svg" alt="My Site Logo" class="themedComponent_mlkZ themedComponent--light_NVdE"><img src="/img/logo.svg" alt="My Site Logo" class="themedComponent_mlkZ themedComponent--dark_xIcU"></div><b class="navbar__title text--truncate">Fan&#x27;s life</b></a><a class="navbar__item navbar__link" href="/blog">Blog</a><a class="navbar__item navbar__link" href="/docs/randt">读考</a><a class="navbar__item navbar__link" href="/docs/prompts/dict">Prompts</a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/docs/refs/battery">References</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="system mode" aria-label="切换浅色/暗黑模式（当前为system mode）"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill="currentColor" d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="回到顶部" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="文档侧边栏" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/docs/refs/battery"><span title="手机充电测试结论" class="linkLabel_WmDU">手机充电测试结论</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/docs/refs/container"><span title="容器及编排" class="linkLabel_WmDU">容器及编排</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/docs/refs/dns"><span title="DNS" class="linkLabel_WmDU">DNS</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/docs/refs/git-diff-tool"><span title="Difference tool configuration in git" class="linkLabel_WmDU">Difference tool configuration in git</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/docs/refs/git"><span title="Three way merge by git" class="linkLabel_WmDU">Three way merge by git</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/docs/refs/macOS"><span title="macOS" class="linkLabel_WmDU">macOS</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/docs/refs/makefile"><span title="Makefile" class="linkLabel_WmDU">Makefile</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/docs/refs/mongo"><span title="MongoDB" class="linkLabel_WmDU">MongoDB</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/docs/refs/py-main"><span title="Python" class="linkLabel_WmDU">Python</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/docs/refs/py-struct"><span title="Structure of the Python Repository" class="linkLabel_WmDU">Structure of the Python Repository</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/docs/refs/scrcpy"><span title="scrcpy" class="linkLabel_WmDU">scrcpy</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/docs/refs/ssh"><span title="SSH config" class="linkLabel_WmDU">SSH config</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/docs/refs/vc"><span title="VC编译选项" class="linkLabel_WmDU">VC编译选项</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/docs/refs/video"><span title="video" class="linkLabel_WmDU">video</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/docs/refs/web"><span title="Web" class="linkLabel_WmDU">Web</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" href="/docs/refs/windows"><span title="Windows" class="linkLabel_WmDU">Windows</span></a></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="页面路径"><ul class="breadcrumbs"><li class="breadcrumbs__item"><a aria-label="主页面" class="breadcrumbs__link" href="/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link">Windows</span></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">本页总览</button></div><div class="theme-doc-markdown markdown"><header><h1>Windows</h1></header>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="1-wsl2-portproxy">1. WSL2 portproxy<a href="#1-wsl2-portproxy" class="hash-link" aria-label="1. WSL2 portproxy的直接链接" title="1. WSL2 portproxy的直接链接" translate="no">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="show-all-port-proxy">show all port proxy<a href="#show-all-port-proxy" class="hash-link" aria-label="show all port proxy的直接链接" title="show all port proxy的直接链接" translate="no">​</a></h3>
+<div class="language-cmd codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-cmd codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">netsh interface portproxy show all</span><br></span></code></pre></div></div>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="expose-22-from-wsl">expose 22 from wsl<a href="#expose-22-from-wsl" class="hash-link" aria-label="expose 22 from wsl的直接链接" title="expose 22 from wsl的直接链接" translate="no">​</a></h3>
+<div class="language-cmd codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-cmd codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">netsh interface portproxy add v4tov4 listenport=22 listenaddress=0.0.0.0 connectport=22 connectaddress=INNER_IP</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">netsh interface portproxy add v4tov4 listenport=8080 listenaddress=0.0.0.0 connectport=8080 connectaddress=localhost</span><br></span></code></pre></div></div>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="delete-port-proxy">delete port proxy<a href="#delete-port-proxy" class="hash-link" aria-label="delete port proxy的直接链接" title="delete port proxy的直接链接" translate="no">​</a></h3>
+<div class="language-cmd codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-cmd codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">netsh interface portproxy delete v4tov4 listenaddress=0.0.0.0 listenport=PORT</span><br></span></code></pre></div></div>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="2-要设置cmdexe的默认代码页为65001-utf-8">2. 要设置cmd.exe的默认代码页为65001 (UTF-8)<a href="#2-要设置cmdexe的默认代码页为65001-utf-8" class="hash-link" aria-label="2. 要设置cmd.exe的默认代码页为65001 (UTF-8)的直接链接" title="2. 要设置cmd.exe的默认代码页为65001 (UTF-8)的直接链接" translate="no">​</a></h2>
+<p>通过注册表编辑器设置：</p>
+<ul>
+<li>
+<p>按下Win + R键打开运行命令对话框。</p>
+</li>
+<li>
+<p>输入regedit并按回车键，这将打开注册表编辑器。</p>
+</li>
+<li>
+<p>导航到以下路径：</p>
+</li>
+</ul>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Command Processor</span><br></span></code></pre></div></div>
+<ul>
+<li>
+<p>在该位置你可能需要创建一个新的String值（如果它还不存在）：</p>
+</li>
+<li>
+<p>右键点击Command Processor，选择新建 -&gt; 字符串值。</p>
+</li>
+<li>
+<p>命名这个新的字符串值为Autorun。</p>
+</li>
+<li>
+<p>双击Autorun，在“数值数据”框中输入chcp 65001并点击“确定”。</p>
+</li>
+<li>
+<p>关闭注册表编辑器。</p>
+</li>
+</ul>
+<p>这样每次cmd.exe启动时，都会自动执行chcp 65001命令将代码页设置为UTF-8。</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="3-使用-robocopy-复制整个-users-目录">3. 使用 robocopy 复制整个 Users 目录<a href="#3-使用-robocopy-复制整个-users-目录" class="hash-link" aria-label="3. 使用 robocopy 复制整个 Users 目录的直接链接" title="3. 使用 robocopy 复制整个 Users 目录的直接链接" translate="no">​</a></h2>
+<p>当你计划复制整个 <code>C:\Users</code> 目录时，你的思路是完全正确的。使用 <code>/MIR</code> 和 <code>/XJ</code> 是处理这种复杂系统文件夹的<strong>关键</strong>。</p>
+<p>直接说结论：<strong>对于复制 <code>C:\Users</code> 目录，使用 <code>/MIR</code> 和 <code>/XJ</code> 不仅更好，而且是必需的，但这还不够。</strong></p>
+<p>下面我们详细分析为什么，以及一个真正“生产环境”级别的完整方案。</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="为什么-mir-和-xj-是必需的">为什么 <code>/MIR</code> 和 <code>/XJ</code> 是必需的？<a href="#为什么-mir-和-xj-是必需的" class="hash-link" aria-label="为什么-mir-和-xj-是必需的的直接链接" title="为什么-mir-和-xj-是必需的的直接链接" translate="no">​</a></h3>
+<ol>
+<li>
+<p><strong>/MIR (镜像)</strong></p>
+<ul>
+<li><strong>优点</strong>: 它能确保目标目录和源目录<strong>完全同步</strong>。这意味着不仅会添加和更新文件，还会<strong>删除</strong>目标目录中那些源目录里已经不存在的文件。对于定期备份来说，这可以防止备份盘越来越臃肿，只保留最新状态。</li>
+<li><strong>风险</strong>: <strong>请务必确认你的目标文件夹是专门用于此次备份的！</strong> 如果你把目标路径错指定到一个包含其他重要文件的文件夹，<code>/MIR</code> 会无情地删除那些与源目录无关的文件。</li>
+</ul>
+</li>
+<li>
+<p><strong>/XJ (排除 Junction Points - 目录联接点)</strong></p>
+<ul>
+<li><strong>绝对关键</strong>: <code>C:\Users</code> 目录内部为了兼容性，充满了大量的 Junctions。最典型的例子就是在 <code>C:\Users\YourUser</code> 下有一个名为 <code>Application Data</code> 的 Junction，它会指回到 <code>C:\Users\YourUser\AppData\Roaming</code>。</li>
+<li>如果你<strong>不使用 <code>/XJ</code></strong>，<code>robocopy</code> 会进入这个 Junction，然后可能在 <code>AppData</code> 内部遇到另一个 Junction，从而陷入<strong>无限递归循环</strong>，直到路径超长或磁盘空间耗尽。</li>
+<li><code>/XJ</code> 告诉 <code>robocopy</code>：“看到 Junction 点了？忽略它，不要进去。” 这可以完美避免无限循环问题。</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="光有-mir-和-xj-还不够cusers-的特殊性">光有 <code>/MIR</code> 和 <code>/XJ</code> 还不够：<code>C:\Users</code> 的特殊性<a href="#光有-mir-和-xj-还不够cusers-的特殊性" class="hash-link" aria-label="光有-mir-和-xj-还不够cusers-的特殊性的直接链接" title="光有-mir-和-xj-还不够cusers-的特殊性的直接链接" translate="no">​</a></h3>
+<p>直接在运行的 Windows 系统上复制 <code>C:\Users</code> 会遇到两个主要障碍：</p>
+<ol>
+<li><strong>文件锁定</strong>: 你当前登录的用户配置文件（以及其他可能登录过的用户）中有大量文件是被系统锁定的，最臭名昭著的就是注册表配置单元 <code>NTUSER.DAT</code>。<code>robocopy</code> 无法复制这些锁定的文件，会导致备份不完整。</li>
+<li><strong>权限问题</strong>: 即使你以管理员身份运行，也可能无法访问其他用户的某些私有文件夹或加密文件（EFS）。</li>
+</ol>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="生产环境下的最佳实践方案">生产环境下的最佳实践方案<a href="#生产环境下的最佳实践方案" class="hash-link" aria-label="生产环境下的最佳实践方案的直接链接" title="生产环境下的最佳实践方案的直接链接" translate="no">​</a></h3>
+<p>为了解决上述问题，有两种推荐的方案。</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="方案一离线复制-最可靠">方案一：离线复制 (最可靠)<a href="#方案一离线复制-最可靠" class="hash-link" aria-label="方案一：离线复制 (最可靠)的直接链接" title="方案一：离线复制 (最可靠)的直接链接" translate="no">​</a></h4>
+<p>这是最干净、最彻底的方法。你需要从一个非当前系统的环境中运行 <code>robocopy</code>。</p>
+<ol>
+<li>
+<p><strong>启动到恢复环境 (WinRE)</strong>:</p>
+<ul>
+<li>按住 <code>Shift</code> 键，然后点击开始菜单中的“重启”。</li>
+<li>选择 <code>疑难解答</code> -&gt; <code>高级选项</code> -&gt; <code>命令提示符</code>。</li>
+<li>此时，你的 Windows 系统并未完全启动，文件不会被锁定。</li>
+</ul>
+</li>
+<li>
+<p><strong>在 WinRE 中运行 Robocopy</strong>:</p>
+<ul>
+<li>在 WinRE 中，你的盘符可能会变，先用 <code>diskpart</code> -&gt; <code>list volume</code> 确认一下你的系统盘（原C盘）和备份盘的盘符。假设系统盘是 <code>D:</code>，备份盘是 <code>E:</code>。</li>
+<li><strong>使用这个增强版指令</strong>：</li>
+</ul>
+<div class="language-cmd codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-cmd codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">robocopy &quot;D:\Users&quot; &quot;E:\Backup\Users&quot; /MIR /COPYALL /B /XJ /R:3 /W:5 /MT:16 /XD &quot;AppData&quot; &quot;Local Settings&quot; &quot;Application Data&quot; /XF &quot;ntuser.dat*&quot; /LOG:E:\Backup\users_backup_log.txt /TEE</span><br></span></code></pre></div></div>
+<p><strong>关键参数解释</strong>：</p>
+<ul>
+<li><code>/B</code> (Backup Mode): <strong>这是离线复制的王牌！</strong> 它使用Windows的备份权限 (SeBackupPrivilege)，允许 <code>robocopy</code> 绕过常规的文件权限（ACLs）来读取所有文件。这解决了权限问题。</li>
+<li><code>/XD &quot;AppData&quot; ...</code>: <strong>强烈推荐！</strong> 排除特定目录。<code>Users</code> 目录下的大部分空间和问题都出在 <code>AppData</code>，里面充满了缓存、临时文件等对备份价值不大的数据。排除它可以极大提升速度、减小备份体积。<!-- -->
+<ul>
+<li><code>AppData</code> (包含了 Local, LocalLow, Roaming)</li>
+<li><code>Local Settings</code>, <code>Application Data</code> 等是旧的 Junctions，虽然 <code>/XJ</code> 会跳过，但明确排除更干净。</li>
+</ul>
+</li>
+<li><code>/XF &quot;ntuser.dat*&quot;</code>: 明确排除注册表文件。即使在 <code>/B</code> 模式下，处理这些文件有时也可能出问题，而且恢复它们需要特殊操作，常规文件复制意义不大。</li>
+</ul>
+</li>
+</ol>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="方案二在线复制-使用卷影副本---vss">方案二：在线复制 (使用卷影副本 - VSS)<a href="#方案二在线复制-使用卷影副本---vss" class="hash-link" aria-label="方案二：在线复制 (使用卷影副本 - VSS)的直接链接" title="方案二：在线复制 (使用卷影副本 - VSS)的直接链接" translate="no">​</a></h4>
+<p>如果你无法离线操作，唯一的办法就是使用<strong>卷影复制服务 (Volume Shadow Copy Service, VSS)</strong>。VSS可以创建一个系统当前状态的“快照”，在这个快照里，文件不会被锁定。</p>
+<p><code>robocopy</code> 本身不直接支持创建 VSS 快照，但你可以通过 <code>diskshadow</code> 脚本来配合。</p>
+<ol>
+<li>
+<p><strong>创建一个 <code>diskshadow</code> 脚本</strong> (例如 <code>vss_script.txt</code>):</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">set context persistent nowriters</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">add volume C: alias SystemBackup</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">create</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">expose %SystemBackup% X:</span><br></span></code></pre></div></div>
+<ul>
+<li>这个脚本会在 <code>C:</code> 盘上创建一个持久化的 VSS 快照，并把它挂载为 <code>X:</code> 盘。</li>
+</ul>
+</li>
+<li>
+<p><strong>创建一个批处理文件</strong> (例如 <code>backup_users.bat</code>) 来执行所有操作:</p>
+<div class="language-bat codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bat codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">@echo off</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">REM --- 使用 diskshadow 创建 VSS 快照并挂载到 X: ---</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">echo &quot;正在创建 C: 盘的卷影副本...&quot;</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">diskshadow /s vss_script.txt &gt; NUL</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">REM --- 检查快照是否成功创建 ---</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">if not exist X:\ (</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    echo &quot;错误：创建卷影副本失败！&quot;</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    goto end</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">)</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">echo &quot;快照已成功挂载到 X: 盘，开始 Robocopy...&quot;</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">REM --- 在快照上运行 Robocopy ---</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">robocopy &quot;X:\Users&quot; &quot;D:\Backup\Users&quot; /MIR /COPYALL /XJ /R:3 /W:5 /MT:16 /XD AppData /XF &quot;ntuser.dat*&quot; /LOG:D:\Backup\users_backup_log.txt /TEE</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">echo &quot;Robocopy 完成。&quot;</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">REM --- 使用 diskshadow 删除快照并卸载 X: ---</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">echo &quot;正在卸载并删除卷影副本...&quot;</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">diskshadow /s - &lt;&lt; (echo delete shadows all &amp; echo exit) &gt; NUL</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">echo &quot;备份完成！&quot;</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">:end</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">pause</span><br></span></code></pre></div></div>
+</li>
+<li>
+<p><strong>以管理员身份运行 <code>backup_users.bat</code></strong>。这个批处理文件会自动完成创建快照 -&gt; 复制 -&gt; 删除快照的全过程。</p>
+</li>
+</ol>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="总结与建议">总结与建议<a href="#总结与建议" class="hash-link" aria-label="总结与建议的直接链接" title="总结与建议的直接链接" translate="no">​</a></h3>
+<table><thead><tr><th style="text-align:left">功能/参数</th><th style="text-align:left">简单复制</th><th style="text-align:left">备份<code>C:\Users</code> (推荐)</th><th style="text-align:left">解释</th></tr></thead><tbody><tr><td style="text-align:left"><strong>模式</strong></td><td style="text-align:left"><code>/E</code></td><td style="text-align:left"><code>/MIR</code></td><td style="text-align:left"><code>/MIR</code> 用于同步，保持备份整洁。</td></tr><tr><td style="text-align:left"><strong>链接处理</strong></td><td style="text-align:left"><code>/SL</code></td><td style="text-align:left"><code>/XJ</code></td><td style="text-align:left"><code>/XJ</code> 必须用来避免 <code>C:\Users</code> 内的无限循环。</td></tr><tr><td style="text-align:left"><strong>权限</strong></td><td style="text-align:left"><code>/COPYALL</code></td><td style="text-align:left"><code>/COPYALL /B</code></td><td style="text-align:left"><code>/B</code> (备份模式) 是关键，用于绕过权限和文件锁定问题（离线时）。</td></tr><tr><td style="text-align:left"><strong>环境</strong></td><td style="text-align:left">在线</td><td style="text-align:left"><strong>离线 (WinRE)</strong> 或 <strong>在线+VSS</strong></td><td style="text-align:left">离线最可靠，VSS是次优选择。</td></tr><tr><td style="text-align:left"><strong>排除</strong></td><td style="text-align:left">不用</td><td style="text-align:left"><code>/XD AppData...</code> <code>/XF ntuser.dat*</code></td><td style="text-align:left">排除临时和缓存数据，极大提高效率和备份质量。</td></tr></tbody></table>
+<p><strong>最终建议</strong>：</p>
+<p>为了获得一个真正无损、可靠的 <code>C:\Users</code> 目录备份，<strong>强烈推荐使用方案一（离线复制）</strong>，并采用包含 <code>/MIR</code>, <code>/XJ</code>, <code>/B</code>, <code>/XD</code> 等参数的完整指令。这是系统管理员和IT专业人员的标准操作。</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="4-将整个用户目录cusers重定向到新位置">4. 将整个用户目录（<code>C:\Users</code>）重定向到新位置<a href="#4-将整个用户目录cusers重定向到新位置" class="hash-link" aria-label="4-将整个用户目录cusers重定向到新位置的直接链接" title="4-将整个用户目录cusers重定向到新位置的直接链接" translate="no">​</a></h2>
+<p>好的，这是一个非常高级且有风险的操作，但确实可以实现。将整个用户目录（<code>C:\Users</code>）重定向到新位置，意味着你要告诉 Windows 系统：“从现在开始，所有用户的配置文件都去新的位置（如 <code>D:\Users</code>）查找和创建。”</p>
+<p><strong>极度重要警告：</strong>
+这是一个对操作系统核心配置的重大修改。操作不当<strong>极有可能导致系统无法启动、用户无法登录、软件运行异常、Windows 更新失败</strong>等严重问题。在开始之前，<strong>必须、必须、必须创建一个完整的系统镜像备份</strong>（使用 Macrium Reflect, AOMEI Backupper, Acronis True Image 或 Windows 自带的系统映像备份功能），以便在出现问题时可以完全恢复！</p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="使用目录联接点-junction推荐给已安装系统">使用目录联接点 (Junction)（推荐给已安装系统）<a href="#使用目录联接点-junction推荐给已安装系统" class="hash-link" aria-label="使用目录联接点 (Junction)（推荐给已安装系统）的直接链接" title="使用目录联接点 (Junction)（推荐给已安装系统）的直接链接" translate="no">​</a></h3>
+<p>这种方法风险相对较低，因为它不修改核心注册表。它只是把 <code>C:\Users</code> 这个路径“欺骗”成一个指向 <code>D:\Users</code> 的快捷方式。</p>
+<ol>
+<li>
+<p><strong>在 WinRE 命令提示符中操作</strong>。</p>
+</li>
+<li>
+<p><strong>重命名旧的 Users 文件夹</strong>:</p>
+<ul>
+<li>这是为了释放 <code>C:\Users</code> 这个名字。</li>
+</ul>
+<div class="language-cmd codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-cmd codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">ren C:\Users C:\Users.old</span><br></span></code></pre></div></div>
+</li>
+<li>
+<p><strong>创建 Junction</strong>:</p>
+<ul>
+<li>使用 <code>mklink</code> 命令创建一个从 <code>C:\Users</code> 指向 <code>D:\Users</code> 的 Junction。</li>
+</ul>
+<div class="language-cmd codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-cmd codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">mklink /J C:\Users D:\Users</span><br></span></code></pre></div></div>
+<ul>
+<li><code>/J</code> 表示创建的是目录联接点 (Directory Junction)，它对于系统来说比普通快捷方式更透明。</li>
+<li>如果成功，你会看到 <code>Junction created for C:\Users &lt;&lt;===&gt;&gt; D:\Users</code>。</li>
+</ul>
+</li>
+<li>
+<p><strong>重启系统</strong>:</p>
+<ul>
+<li>关闭命令提示符，选择“继续”或“退出并继续到 Windows”。</li>
+</ul>
+</li>
+</ol>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="5-windows-11在更新重启时卡住超过20分钟">5. Windows 11在更新重启时卡住超过20分钟<a href="#5-windows-11在更新重启时卡住超过20分钟" class="hash-link" aria-label="5. Windows 11在更新重启时卡住超过20分钟的直接链接" title="5. Windows 11在更新重启时卡住超过20分钟的直接链接" translate="no">​</a></h2>
+<p>Windows 11在更新重启时卡住超过20分钟，确实是一个比较棘手的问题，但这通常是可以解决的。这可能由多种原因引起，例如更新文件过大、软件冲突、系统文件损坏或驱动程序问题。</p>
+<p>您可以按照从易到难的顺序尝试以下几种方法来解决此问题：</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="第一步耐心等待与强制重启"><strong>第一步：耐心等待与强制重启</strong><a href="#第一步耐心等待与强制重启" class="hash-link" aria-label="第一步耐心等待与强制重启的直接链接" title="第一步耐心等待与强制重启的直接链接" translate="no">​</a></h3>
+<ul>
+<li><strong>耐心等待</strong>：某些大型功能更新可能需要比预期更长的时间。如果您的硬盘指示灯仍在闪烁，表明系统仍在进行读写操作，建议再等待一段时间。</li>
+<li><strong>强制重启</strong>：如果长时间没有任何反应，您可以尝试强制重启。<!-- -->
+<ol>
+<li>长按电源按钮，直到电脑完全关机。</li>
+<li>等待大约30秒后，再重新按下电源按钮开机。</li>
+<li>很多情况下，系统会在重启后继续完成更新过程或自动回滚失败的更新。</li>
+</ol>
+</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="第二步使用windows内置工具进行修复"><strong>第二步：使用Windows内置工具进行修复</strong><a href="#第二步使用windows内置工具进行修复" class="hash-link" aria-label="第二步使用windows内置工具进行修复的直接链接" title="第二步使用windows内置工具进行修复的直接链接" translate="no">​</a></h3>
+<p>如果强制重启后问题依旧，或者电脑无法正常进入系统，您可以尝试以下方法：</p>
+<ul>
+<li>
+<p><strong>启动修复</strong>：多次强制重启（通常是3次）后，Windows会自动进入“高级启动选项”菜单。</p>
+<ol>
+<li>在此菜单中，选择“疑难解答” &gt; “高级选项” &gt; “启动修复”。</li>
+<li>系统将自动诊断并尝试修复妨碍Windows加载的问题。</li>
+</ol>
+</li>
+<li>
+<p><strong>进入安全模式</strong>：在安全模式下，系统仅加载最基本的服务和驱动程序，便于排查问题。</p>
+<ol>
+<li>同样通过多次强制重启进入“高级启动选项”，然后选择“疑难解答” &gt; “高级选项” &gt; “启动设置” &gt; “重启”。</li>
+<li>电脑重启后，按“4”或“F4”键进入安全模式。</li>
+<li>在安全模式下，您可以尝试卸载最近的更新或回滚驱动程序。</li>
+</ol>
+</li>
+<li>
+<p><strong>运行Windows更新疑难解答</strong>：如果能进入系统（无论是正常模式还是安全模式），可以运行此工具。</p>
+<ol>
+<li>按下 <code>Windows键 + I</code> 打开设置，前往“系统” &gt; “疑难解答” &gt; “其他疑难解答”。</li>
+<li>找到“Windows更新”，然后点击“运行”按钮。</li>
+</ol>
+</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="第三步使用命令行工具修复系统文件"><strong>第三步：使用命令行工具修复系统文件</strong><a href="#第三步使用命令行工具修复系统文件" class="hash-link" aria-label="第三步使用命令行工具修复系统文件的直接链接" title="第三步使用命令行工具修复系统文件的直接链接" translate="no">​</a></h3>
+<p>对于更深层次的系统文件损坏，可以尝试使用命令行工具。</p>
+<ol>
+<li>在搜索栏中输入“cmd”或“命令提示符”，右键点击并选择“以管理员身份运行”。</li>
+<li>输入 <code>sfc /scannow</code> 命令并按回车。这个命令会扫描并修复受保护的系统文件。</li>
+<li>扫描完成后，再输入 <code>DISM /Online /Cleanup-Image /RestoreHealth</code> 并按回车。这个命令会修复Windows系统映像。</li>
+<li>完成后重启电脑，再次尝试更新。</li>
+</ol>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="第四步清理更新缓存"><strong>第四步：清理更新缓存</strong><a href="#第四步清理更新缓存" class="hash-link" aria-label="第四步清理更新缓存的直接链接" title="第四步清理更新缓存的直接链接" translate="no">​</a></h3>
+<p>损坏的更新缓存文件也可能导致更新卡住。</p>
+<ol>
+<li>以管理员身份打开命令提示符。</li>
+<li>依次输入并执行以下命令，停止相关服务：<!-- -->
+<ul>
+<li><code>net stop wuauserv</code></li>
+<li><code>net stop bits</code></li>
+</ul>
+</li>
+<li>然后，重命名SoftwareDistribution文件夹，该文件夹存储了更新文件。</li>
+<li>最后，重新启动刚才停止的服务：<!-- -->
+<ul>
+<li><code>net start wuauserv</code></li>
+<li><code>net start bits</code></li>
+</ul>
+</li>
+<li>重启电脑后，Windows会重新创建更新文件夹并下载更新。</li>
+</ol>
+<p>如果以上方法均无效，最后的选择可能是使用“系统还原”将电脑恢复到更新前的状态，或者“重置此电脑”。</p></div></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="文件选项卡"><a class="pagination-nav__link pagination-nav__link--prev" href="/docs/refs/web"><div class="pagination-nav__sublabel">上一页</div><div class="pagination-nav__label">Web</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#1-wsl2-portproxy" class="table-of-contents__link toc-highlight">1. WSL2 portproxy</a><ul><li><a href="#show-all-port-proxy" class="table-of-contents__link toc-highlight">show all port proxy</a></li><li><a href="#expose-22-from-wsl" class="table-of-contents__link toc-highlight">expose 22 from wsl</a></li><li><a href="#delete-port-proxy" class="table-of-contents__link toc-highlight">delete port proxy</a></li></ul></li><li><a href="#2-要设置cmdexe的默认代码页为65001-utf-8" class="table-of-contents__link toc-highlight">2. 要设置cmd.exe的默认代码页为65001 (UTF-8)</a></li><li><a href="#3-使用-robocopy-复制整个-users-目录" class="table-of-contents__link toc-highlight">3. 使用 robocopy 复制整个 Users 目录</a><ul><li><a href="#为什么-mir-和-xj-是必需的" class="table-of-contents__link toc-highlight">为什么 <code>/MIR</code> 和 <code>/XJ</code> 是必需的？</a></li><li><a href="#光有-mir-和-xj-还不够cusers-的特殊性" class="table-of-contents__link toc-highlight">光有 <code>/MIR</code> 和 <code>/XJ</code> 还不够：<code>C:\Users</code> 的特殊性</a></li><li><a href="#生产环境下的最佳实践方案" class="table-of-contents__link toc-highlight">生产环境下的最佳实践方案</a></li><li><a href="#总结与建议" class="table-of-contents__link toc-highlight">总结与建议</a></li></ul></li><li><a href="#4-将整个用户目录cusers重定向到新位置" class="table-of-contents__link toc-highlight">4. 将整个用户目录（<code>C:\Users</code>）重定向到新位置</a><ul><li><a href="#使用目录联接点-junction推荐给已安装系统" class="table-of-contents__link toc-highlight">使用目录联接点 (Junction)（推荐给已安装系统）</a></li></ul></li><li><a href="#5-windows-11在更新重启时卡住超过20分钟" class="table-of-contents__link toc-highlight">5. Windows 11在更新重启时卡住超过20分钟</a><ul><li><a href="#第一步耐心等待与强制重启" class="table-of-contents__link toc-highlight"><strong>第一步：耐心等待与强制重启</strong></a></li><li><a href="#第二步使用windows内置工具进行修复" class="table-of-contents__link toc-highlight"><strong>第二步：使用Windows内置工具进行修复</strong></a></li><li><a href="#第三步使用命令行工具修复系统文件" class="table-of-contents__link toc-highlight"><strong>第三步：使用命令行工具修复系统文件</strong></a></li><li><a href="#第四步清理更新缓存" class="table-of-contents__link toc-highlight"><strong>第四步：清理更新缓存</strong></a></li></ul></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2025 Fan's life, Inc. Built with Docusaurus.</div></div></div></footer></div>
+</body>
+</html>
