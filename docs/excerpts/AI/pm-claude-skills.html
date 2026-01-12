@@ -1,0 +1,420 @@
+<!doctype html>
+<html lang="zh-Hans" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-excerpts/AI/pm-claude-skills" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.9.2">
+<title data-rh="true">当产品经理遇到 Claude Skills | Fan&#x27;s life</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://only1zf.com/img/docusaurus-social-card.jpg"><meta data-rh="true" name="twitter:image" content="https://only1zf.com/img/docusaurus-social-card.jpg"><meta data-rh="true" property="og:url" content="https://only1zf.com/docs/excerpts/AI/pm-claude-skills"><meta data-rh="true" property="og:locale" content="zh_Hans"><meta data-rh="true" name="docusaurus_locale" content="zh-Hans"><meta data-rh="true" name="docsearch:language" content="zh-Hans"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="当产品经理遇到 Claude Skills | Fan&#x27;s life"><meta data-rh="true" name="description" content="Author: @wshuyi"><meta data-rh="true" property="og:description" content="Author: @wshuyi"><link data-rh="true" rel="icon" href="/img/favicon.ico"><link data-rh="true" rel="alternate" href="https://only1zf.com/docs/excerpts/AI/pm-claude-skills" hreflang="zh-Hans"><link data-rh="true" rel="alternate" href="https://only1zf.com/docs/excerpts/AI/pm-claude-skills" hreflang="x-default"><link data-rh="true" rel="canonical" href="https://x.com/wshuyi/status/2010352847964209183"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"当产品经理遇到 Claude Skills","item":"https://only1zf.com/docs/excerpts/AI/pm-claude-skills"}]}</script><link rel="stylesheet" href="/assets/css/styles.1b12b40b.css">
+<script src="/assets/js/runtime~main.ebdabb3c.js" defer="defer"></script>
+<script src="/assets/js/main.592790bf.js" defer="defer"></script>
+</head>
+<body class="navigation-with-keyboard">
+<svg style="display: none;"><defs>
+<symbol id="theme-svg-external-link" viewBox="0 0 24 24"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||"light"),document.documentElement.setAttribute("data-theme-choice",t||"light")}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><link rel="preload" as="image" href="/img/logo.svg"><div role="region" aria-label="跳到主要内容"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">跳到主要内容</a></div><nav aria-label="主导航" class="theme-layout-navbar navbar navbar--fixed-top"><div class="navbar__inner"><div class="theme-layout-navbar-left navbar__items"><button aria-label="切换导航栏" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/"><div class="navbar__logo"><img src="/img/logo.svg" alt="My Site Logo" class="themedComponent_mlkZ themedComponent--light_NVdE"><img src="/img/logo.svg" alt="My Site Logo" class="themedComponent_mlkZ themedComponent--dark_xIcU"></div><b class="navbar__title text--truncate">Fan&#x27;s life</b></a><a class="navbar__item navbar__link" href="/blog">Blog</a><a class="navbar__item navbar__link" href="/docs/commentary">读考</a><a class="navbar__item navbar__link" href="/docs/prompts/dict">Prompts</a><a class="navbar__item navbar__link" href="/docs/refs/REST-Client">References</a><a class="navbar__item navbar__link" href="/docs/chats/cloudflare-20251118">Chats</a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/docs/excerpts/AI/a-common-translation-prompt-for-different-languages">Excerpts</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="system mode" aria-label="切换浅色/暗黑模式（当前为system mode）"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill="currentColor" d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="回到顶部" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="文档侧边栏" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role="button" aria-expanded="true" href="/docs/excerpts/AI/a-common-translation-prompt-for-different-languages"><span title="AI" class="categoryLinkLabel_W154">AI</span></a></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/excerpts/AI/a-common-translation-prompt-for-different-languages"><span title="一个相对通用的翻译 Prompt，可以适用于多种不同的语言翻译" class="linkLabel_WmDU">一个相对通用的翻译 Prompt，可以适用于多种不同的语言翻译</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/excerpts/AI/gpt-5_prompting_guide"><span title="GPT-5 prompting guide" class="linkLabel_WmDU">GPT-5 prompting guide</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/excerpts/AI/gpt-translation-long-content-optimization"><span title="GPT 无法翻译超长内容的提示词优化尝试" class="linkLabel_WmDU">GPT 无法翻译超长内容的提示词优化尝试</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/excerpts/AI/gpt4-1_prompting_guide"><span title="GPT-4.1 Prompting Guide" class="linkLabel_WmDU">GPT-4.1 Prompting Guide</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/excerpts/AI/how-to-avoid-translated-content-being-treated-as-dialog"><span title="在构建 Prompt 时，如何避免把翻译内容当成对话内容？" class="linkLabel_WmDU">在构建 Prompt 时，如何避免把翻译内容当成对话内容？</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/excerpts/AI/llm-translation-better-idiom"><span title="一句简单的提示词就可以让 LLM 在翻译的时候更好的“意译”" class="linkLabel_WmDU">一句简单的提示词就可以让 LLM 在翻译的时候更好的“意译”</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/docs/excerpts/AI/pm-claude-skills"><span title="当产品经理遇到 Claude Skills" class="linkLabel_WmDU">当产品经理遇到 Claude Skills</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/excerpts/AI/translator-gpt-prompt-v2-1-improvement"><span title="翻译 GPT 的提示词更新和优化" class="linkLabel_WmDU">翻译 GPT 的提示词更新和优化</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/excerpts/AI/如何与孩子聊ChatGPT"><span title="如何与孩子聊ChatGPT：AI大时代的完整版家长指南" class="linkLabel_WmDU">如何与孩子聊ChatGPT：AI大时代的完整版家长指南</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/excerpts/AI/探索AIGC在网易严选中的应用"><span title="AIGC|探索AIGC在网易严选中的应用" class="linkLabel_WmDU">AIGC|探索AIGC在网易严选中的应用</span></a></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/excerpts/games/赛式方法论上"><span title="games" class="categoryLinkLabel_W154">games</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/excerpts/human/一个天才的陨落"><span title="human" class="categoryLinkLabel_W154">human</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/excerpts/insurance/2023年我所推荐的保险产品"><span title="insurance" class="categoryLinkLabel_W154">insurance</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/excerpts/learn/doing-well-courses"><span title="learn" class="categoryLinkLabel_W154">learn</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/excerpts/life/谈谈人生风控"><span title="life" class="categoryLinkLabel_W154">life</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/excerpts/management/华为基本法"><span title="management" class="categoryLinkLabel_W154">management</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/excerpts/money/2021不烦恼指南"><span title="money" class="categoryLinkLabel_W154">money</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/excerpts/tech/a-successful-git-branching-model"><span title="tech" class="categoryLinkLabel_W154">tech</span></a></div></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/docs/excerpts/苟活的中年人"><span title="苟活的中年人" class="linkLabel_WmDU">苟活的中年人</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/docs/excerpts/血尿酸高和痛风的人吃不得豆腐可以喝白酒"><span title="血尿酸高和痛风的人吃不得豆腐可以喝白酒？华西营养专家说，信你就拐了！" class="linkLabel_WmDU">血尿酸高和痛风的人吃不得豆腐可以喝白酒？华西营养专家说，信你就拐了！</span></a></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="页面路径"><ul class="breadcrumbs"><li class="breadcrumbs__item"><a aria-label="主页面" class="breadcrumbs__link" href="/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">AI</span></li><li class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link">当产品经理遇到 Claude Skills</span></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">本页总览</button></div><div class="theme-doc-markdown markdown"><header><h1>当产品经理遇到 Claude Skills</h1></header>
+<p><strong>Author:</strong> @wshuyi</p>
+<p><strong>Original link:</strong> <a href="https://x.com/wshuyi/status/2010352847964209183" target="_blank" rel="noopener noreferrer" class="">https://x.com/wshuyi/status/2010352847964209183</a></p>
+<p><strong>Note:</strong> All rights belong to the original author. This post includes brief excerpts for commentary and review. Please read the full article at the source.</p>
+<p><strong>Published</strong> on 2026-01-11T14:07:24.000Z</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="第一章ai-的校验员">第一章：AI 的校验员<a href="#第一章ai-的校验员" class="hash-link" aria-label="第一章：AI 的校验员的直接链接" title="第一章：AI 的校验员的直接链接" translate="no">​</a></h2>
+<p>望京 SOHO 三号楼的灯光稀稀落落，像是被掏空了内脏的巨兽躺在北京的夜色里。林小棠揉了揉眼睛，屏幕上的光刺得她有些恍惚。</p>
+<p>晚上十点四十七分。</p>
+<p>她盯着 Claude 刚刚生成的第三版 PRD 初稿，手指悬在键盘上方，迟迟没有落下。这份需求文档看起来结构完整，用词专业，甚至还贴心地加上了 &quot;用户故事&quot; 和 &quot;验收标准&quot;—— 标准到像是从某本产品经理教科书里复制粘贴出来的。</p>
+<p>问题就在这里。</p>
+<p>太标准了。标准得像是实习生写的，每个该有的模块都有，但没有一个地方能让人眼前一亮。那些关于用户痛点的描述，读起来正确，却空洞；那些功能定义，逻辑自洽，却缺乏对业务场景的真实理解。</p>
+<p>林小棠把文档滚动到开头，又看了一遍自己输入的 prompt：</p>
+<blockquote>
+<p>你是一个资深产品经理，请根据以下背景信息，撰写一份 PRD......</p>
+</blockquote>
+<p>她叹了口气。这已经是今晚第三次尝试了。第一次太发散，第二次太啰嗦，第三次...... 第三次就是现在这个样子：什么都对，但什么都不对。</p>
+<p>窗外的北京灰蒙蒙的，望京 SOHO 的玻璃幕墙反射着对面商场的霓虹灯，红红绿绿地晃。她的工位在角落，旁边的绿萝死了一半，另一半顽强地活着，像极了这个行业里的大多数人。</p>
+<p>三年前，这层楼坐满了人，产品、运营、技术、设计，光是产品经理就有十二个。每天早上九点半开完站会，大家各自对着需求文档奋笔疾书，或者拉着开发在白板前画流程图。</p>
+<p>现在，整个产品组就剩五个人。</p>
+<p>林小棠清楚地记得去年三月那个下午。HR 把刘哥叫进了小会议室，二十分钟后，刘哥出来，脸色发白，开始收拾工位。四十三岁，在公司干了六年，负责的业务线被砍，人也跟着一起砍了。</p>
+<p>&quot;你知道 HR 怎么跟我说的吗？&quot; 刘哥一边往箱子里扔东西，一边苦笑，&quot;说我的工作内容，AI 就能干。&quot;</p>
+<p>那天晚上，林小棠失眠了。</p>
+<p>她今年三十二岁，入行八年。从初级产品做起，熬过了两次大厂裁员，跳槽到这家中型公司，以为能安稳几年。结果呢？2025 年的互联网寒冬比她想象的更冷。</p>
+<p>公司的业务在收缩，人效成了老板嘴里最高频的词。&quot;AI 提效&quot; 的标语贴满了走廊，各种大模型工具的使用培训一个接一个。领导们说这是 &quot;数字化转型&quot;，是 &quot;拥抱未来&quot;。</p>
+<p>但林小棠知道，这意味着什么。</p>
+<p>以前，她是写需求文档的人。现在，她是检查 AI 写的需求文档的人。以前，她是用户调研的主导者。现在，她是整理 AI 生成的调研报告的人。以前，她是产品经理。现在，她是 AI 的人肉校验员。</p>
+<p>她不知道这样的日子还能持续多久。</p>
+<p>&quot;叮&quot; 的一声，微信弹出消息。是老张 —— 产品总监张建国。</p>
+<p>&quot;明天早会，把那个会员体系优化的方案准备一下，下周一 demo，老板要看。&quot;</p>
+<p>林小棠看了眼时间。周四晚上十点五十二分。下周一 demo。算上周末，还有四天。</p>
+<p>她把 Claude 生成的那份 PRD 存进了 &quot;废稿&quot; 文件夹，这是今晚第三个。然后打开 Notion，找到那份会员体系优化的项目文档，里面躺着她之前做的用户调研和竞品分析。</p>
+<p>这些本来应该是她的工作。调研、分析、定义需求、撰写文档。八年来，她积累了一套自己的方法论，从用户访谈的技巧，到需求优先级的判断框架，到 PRD 的结构模板。这些东西曾经让她在团队里有一席之地。</p>
+<p>但现在，Claude 也能做这些了。虽然做得不够好，但够用了。而 &quot;够用&quot; 在降本增效的大环境下，就是够用了。</p>
+<p>电梯间的灯光亮了一下，有脚步声传来。林小棠抬头，看到陈洋背着双肩包走过来。</p>
+<p>&quot;棠姐，还没走呢？&quot; 陈洋是组里的前端开发，二十七岁，比她小五岁，但在技术圈子里已经算是 &quot;资深&quot; 了。</p>
+<p>&quot;马上走。&quot; 林小棠揉了揉脖子，&quot;你呢？这么晚。&quot;</p>
+<p>&quot;刚把一个 bug 改完。&quot; 陈洋站在她工位旁边，瞟了一眼她的屏幕，&quot;用 Claude 写 PRD？&quot;</p>
+<p>&quot;嗯，效果一般。&quot;</p>
+<p>&quot;试过用 Skills 吗？&quot;</p>
+<p>林小棠愣了一下。&quot;什么？&quot;</p>
+<p>&quot;Claude Skills。&quot; 陈洋把双肩包放下，拉过旁边的椅子坐下，&quot;就是 Anthropic 去年底推的那个功能。可以把你的工作流程封装成 Skill，以后直接调用。&quot;</p>
+<p>&quot;听说过。&quot; 林小棠点点头，&quot;不就是高级版的 prompt 模板吗？&quot;</p>
+<p>&quot;不太一样。&quot; 陈洋打开自己的笔记本电脑，调出终端，&quot;你看，这是我给自己做的一个 Skill，专门用来提交代码的。&quot;</p>
+<p>他在终端里敲了一行命令：</p>
+<blockquote>
+<p>/commit</p>
+</blockquote>
+<p>屏幕上跳出一串文字，Claude 开始自动分析代码变更，生成 commit message，检查是否符合团队规范，最后询问是否确认提交。</p>
+<p>&quot;这个 Skill 里面，我把咱们团队的 commit 规范、代码审查的检查点、还有我平时写 commit message 的习惯都写进去了。&quot; 陈洋指着屏幕，&quot;以后每次提交代码，不用再手动写那些东西，Claude 自己就知道该怎么做。&quot;</p>
+<p>林小棠看着屏幕上的输出，皱了皱眉。&quot;所以...... 本质上还是提示词工程？&quot;</p>
+<p>&quot;可以这么理解，但更系统化。&quot; 陈洋收起电脑，&quot;普通的 prompt 是一次性的，用完就没了。Skill 是可以持久保存、跨项目复用的。而且可以调用工具、执行代码、读取文件...... 功能比单纯的提示词强多了。&quot;</p>
+<p>&quot;听起来挺复杂的。&quot;</p>
+<p>&quot;上手其实不难。&quot; 陈洋背上双肩包，准备走了，&quot;棠姐，你那套用户调研的方法论，比网上那些烂大街的模板强太多了。为什么不试试把它做成 Skill？这样每次调研的时候，Claude 就能按照你的思路来执行，比让它自由发挥强多了。&quot;</p>
+<p>林小棠没说话，只是点了点头。</p>
+<p>陈洋走了。电梯间的灯再次暗下去。</p>
+<p>林小棠盯着屏幕上那份废弃的 PRD，突然想起 Notion 里那个很久没打开的文件夹。里面躺着她这些年积累的各种方法论笔记：用户访谈的问题清单、需求分析的框架、竞品研究的模板......</p>
+<p>那些东西，她已经很久没看了。</p>
+<p>因为 Claude 来了。Claude 什么都能写，什么都能生成。那些她花了八年时间积累的经验，突然变得像是上个时代的遗物。</p>
+<p>但今晚，Claude 生成的三份 PRD，没有一份能用。</p>
+<p>林小棠关上电脑，拎起包，走向电梯。</p>
+<p>窗外的北京依然灰蒙蒙的，但她脑子里开始转动起一个模糊的念头 ——</p>
+<p>如果 Claude 不知道怎么写出好的 PRD，也许问题不在 Claude。</p>
+<p>问题在于，她没有告诉 Claude，什么才叫 &quot;好&quot;。</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="第二章年轻人的玩具">第二章：年轻人的玩具<a href="#第二章年轻人的玩具" class="hash-link" aria-label="第二章：年轻人的玩具的直接链接" title="第二章：年轻人的玩具的直接链接" translate="no">​</a></h2>
+<p>周五早上九点半，林小棠准时走进会议室。</p>
+<p>老张已经坐在主位上，面前摆着一杯美式咖啡，正在翻手机。小雨缩在角落里，捧着笔记本电脑，眼圈有点黑。陈洋靠在椅背上，耳机挂在脖子上，一副还没睡醒的样子。</p>
+<p>&quot;人齐了吗？&quot; 老张抬头看了一圈，&quot;开始吧。&quot;</p>
+<p>站会很快。老张把目光落在林小棠身上：&quot;会员体系优化的方案，周一 demo，你这边准备得怎么样？&quot;</p>
+<p>&quot;在推进。&quot; 林小棠说，&quot;用户调研的数据已经整理完了，竞品分析也做了一部分。周末我把 PRD 初稿写出来。&quot;</p>
+<p>&quot;周末？&quot; 老张皱了皱眉，&quot;不能今天搞定？&quot;</p>
+<p>&quot;调研数据需要再梳理一下，有些用户反馈需要深挖。&quot;</p>
+<p>&quot;让 AI 帮你嘛。&quot; 老张端起咖啡喝了一口，&quot;现在不是都用 Claude 了吗？不要什么事都自己扛，学会借力。&quot;</p>
+<p>林小棠嘴角动了动，没说话。</p>
+<p>散会后，她回到工位，打开 Notion，开始整理调研数据。旁边的小雨凑了过来，脸上带着那种熟悉的、有求于人的表情。</p>
+<p>&quot;棠姐...... 你有空吗？&quot;</p>
+<p>&quot;怎么了？&quot;</p>
+<p>小雨把笔记本电脑递过来，屏幕上密密麻麻排列着五个文档链接：&quot;我用 Claude 写了五版 PRD，每一版看起来都挺像样的，但就是...... 不对。我也说不上来哪里不对。&quot;</p>
+<p>林小棠点开第一个文档，快速浏览了一遍。结构清晰，用词专业，需求描述完整，还配了流程图 ——Claude 现在连流程图都能画了。</p>
+<p>&quot;看着挺好的啊。&quot; 她说。</p>
+<p>&quot;是挺好的......&quot; 小雨咬着嘴唇，&quot;但是上周评审会上，技术那边全是问题。他们说需求描述太笼统，边界条件不清楚，异常情况没考虑...... 我又改了两版，但还是过不了。&quot;</p>
+<p>林小棠点开第三版、第四版、第五版。每一版都比前一版更详细，更 &quot;专业&quot;，但问题依然在那里 —— 表面上什么都有，实际上什么都差一点。</p>
+<p>&quot;你的 prompt 是怎么写的？&quot; 林小棠问。</p>
+<p>小雨切换到 Claude 的对话界面，把她的 prompt 展示出来：</p>
+<blockquote>
+<p>你是一个资深产品经理，请帮我撰写一份 PRD，功能是......</p>
+</blockquote>
+<p>林小棠看完，沉默了几秒。</p>
+<p>&quot;你没有告诉它，什么是好的 PRD。&quot; 她说，&quot;你只告诉它你要什么功能，但没告诉它怎么描述这个功能才能让技术理解。&quot;</p>
+<p>小雨眨了眨眼：&quot;可是...... 我也不知道怎么描述啊。我就是不知道才让 AI 写的。&quot;</p>
+<p>这句话像一把小刀，不知道扎在了林小棠心里的哪个位置。</p>
+<p>她看着小雨 —— 这个二十九岁的姑娘，比她晚入行五年，经历了完全不同的产品经理成长路径。小雨这一代是伴随着 AI 工具长大的，从入行第一天起，就在用各种大模型辅助工作。</p>
+<p>但也正因为如此，她们跳过了一些东西。</p>
+<p>&quot;我下午教你。&quot; 林小棠说，&quot;现在我得先把自己的活干完。&quot;</p>
+<p>小雨千恩万谢地走了。林小棠却坐在工位上发了好一会儿呆。</p>
+<p>中午，陈洋拉她去楼下的沙拉店吃饭。冬天的望京风很大，两个人缩在店里的角落，一边戳着沙拉，一边聊天。</p>
+<p>&quot;昨晚你说的那个 Skills，&quot; 林小棠咬着叉子，&quot;具体怎么玩？&quot;</p>
+<p>陈洋放下筷子，眼睛亮了起来：&quot;你感兴趣了？&quot;</p>
+<p>&quot;随便问问。&quot;</p>
+<p>陈洋从口袋里掏出手机，打开一个网页：&quot;你看，这是 Anthropic 官方的介绍。Skills 本质上是一个文件夹，里面放的是指令、工具脚本、参考资料什么的。Claude 在执行任务的时候，会根据你的需求自动加载对应的 Skill，按照里面的规则来做事。&quot;</p>
+<p>林小棠接过手机，快速浏览了一下。页面上写着：</p>
+<blockquote>
+<p>Skills are modular, self-contained packages that extend Claude&#x27;s capabilities by providing specialized knowledge, workflows, and tools.</p>
+</blockquote>
+<p>&quot;模块化、自包含、可扩展......&quot; 她念叨着，&quot;所以这东西跟<code>CLAUDE.md</code>有什么区别？<code>CLAUDE.md</code>不也是给 Claude 写规则吗？&quot;</p>
+<p>&quot;区别大了。&quot; 陈洋比划着解释，&quot;<code>CLAUDE.md</code>是启动时全量加载的，不管你这次任务用不用得到，都会占用上下文。而且写长了性能会变差。Skills 是按需加载的，用到哪个加载哪个，更灵活。&quot;</p>
+<p>&quot;听起来像插件系统。&quot;</p>
+<p>&quot;对，就是插件系统。&quot; 陈洋点头，&quot;而且 Skills 可以调用工具、执行代码、读取文件，功能比单纯的提示词强太多了。网上现在有很多开源的 Skills，什么自动提交代码的、自动审查 PR 的、自动生成测试用例的...... 我用了几个，确实好使。&quot;</p>
+<p>林小棠把手机还给他，靠在椅背上。</p>
+<p>&quot;这不还是程序员的玩具吗？&quot; 她说，&quot;跟我一个产品经理有什么关系？&quot;</p>
+<p>陈洋摇头：&quot;不是程序员专属的。Skills 可以封装任何领域的知识和工作流，产品、设计、运营、甚至财务，谁都能用。关键是...... 你得有东西可以封装。&quot;</p>
+<p>他顿了顿，看着林小棠：&quot;棠姐，你做产品八年了，那些方法论、经验、踩过的坑，这些才是最有价值的东西。AI 会写 PRD，但 AI 不知道什么是好的 PRD。你知道。&quot;</p>
+<p>&quot;你是说，把我的经验做成 Skill，然后让 Claude 按照我的方法来做事？&quot;</p>
+<p>&quot;对。&quot; 陈洋说，&quot;你不是在教 AI 怎么写文档。你是在教 AI，怎么像你一样思考。&quot;</p>
+<p>林小棠没有立刻回应。她低头戳着盘子里的沙拉，脑子里转着各种念头。</p>
+<p>下午回到公司，她坐在工位上，打开了 Claude Skills 的官方文档。</p>
+<p>文档很长，概念很多。什么模块化、什么生命周期、什么触发规则...... 她看了二十分钟，感觉脑子里乱成一团浆糊。</p>
+<p>这不是她熟悉的领域。她是产品经理，不是程序员。她可以写 PRD，可以做用户调研，可以跟技术沟通需求，但让她去搞什么 &quot;文件夹结构&quot; 和 &quot;Markdown 配置文件&quot;，总感觉哪里不对。</p>
+<p>她关掉文档，打开 Notion，继续整理调研数据。</p>
+<p>傍晚五点半，小雨又出现在她工位旁边。</p>
+<p>&quot;棠姐，你说下午教我来着......&quot;</p>
+<p>林小棠看了眼屏幕上还没整理完的数据，又看了眼小雨那张期待的脸，叹了口气。</p>
+<p>&quot;行吧。&quot; 她拉过一把椅子，&quot;坐。&quot;</p>
+<p>接下来一个小时，林小棠手把手地教小雨如何分析需求、如何拆解功能点、如何预判技术实现的难点、如何描述边界条件和异常情况。</p>
+<p>她一边讲，一边在纸上画框架图，一边举例子。讲着讲着，她自己都有些恍惚 —— 这些东西，她平时从来不会这么系统地表达出来。它们就存在于她的脑子里，用的时候自然而然就调用了，但要说清楚 &quot;为什么这样做&quot;，竟然需要费一番功夫。</p>
+<p>&quot;棠姐，你太厉害了。&quot; 小雨两眼放光，&quot;你刚才说的那些，网上根本搜不到。&quot;</p>
+<p>林小棠愣了一下：&quot;搜不到？&quot;</p>
+<p>&quot;我查过好多教程，都是些很泛的框架，什么用户故事模板、需求优先级矩阵...... 但你说的那些，比如怎么从用户的一句抱怨里提炼出真正的需求，怎么判断一个功能该不该做...... 这些真的搜不到。&quot;</p>
+<p>林小棠看着小雨认真记笔记的样子，突然有些感慨。</p>
+<p>这些东西，她以为是常识。但对于伴随 AI 成长的这一代人来说，这些 &quot;常识&quot; 从来没有被系统地传授过。他们学会了怎么用工具，但没有学会工具背后的思维方式。</p>
+<p>&quot;好了，今天先到这里。&quot; 林小棠站起来，&quot;你回去试试，按照我刚才说的方法，重新理一遍需求。&quot;</p>
+<p>小雨千恩万谢地走了。</p>
+<p>林小棠独自坐在空荡荡的工位区，窗外的天已经完全黑了。</p>
+<p>她打开 Notion，翻到那个很久没动过的文件夹。里面躺着她这些年积累的各种方法论笔记：用户访谈的问题清单、需求分析的框架、竞品研究的模板、PRD 的结构指南......</p>
+<p>这些东西，她曾经以为没用了。因为 Claude 什么都能写。</p>
+<p>但今天，她发现 Claude 写不出来的东西，恰恰是这些笔记里记录的东西。</p>
+<p>她又想起陈洋的话：</p>
+<p>&quot;你不是在教 AI 怎么写文档。你是在教 AI，怎么像你一样思考。&quot;</p>
+<p>林小棠盯着屏幕，手指在键盘上悬了很久。</p>
+<p>最后，她打开了 Claude Skills 的文档，从头开始看。</p>
+<p>这一次，她没有跳过任何一个章节。</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="第三章第一个-skill">第三章：第一个 Skill<a href="#第三章第一个-skill" class="hash-link" aria-label="第三章：第一个 Skill的直接链接" title="第三章：第一个 Skill的直接链接" translate="no">​</a></h2>
+<p>周六早上九点，林小棠坐在自己租的小公寓里，面前摆着一杯咖啡和一台打开的笔记本电脑。</p>
+<p>窗外是北京典型的冬日，灰白的天空，光秃秃的树枝，偶尔有几只麻雀飞过。她住的这个老小区在朝阳区的某个角落，六层楼，没有电梯，暖气勉强够用。</p>
+<p>这是她在北京的第八年。八年前刚毕业的时候，她住在五环外的隔断间，每天挤两小时地铁上班。现在虽然搬进了正经的单间，但也只是从隔断间升级成了老破小。</p>
+<p>北京的房价和她的工资涨幅，永远不在一个频道上。</p>
+<p>林小棠喝了口咖啡，把注意力拉回屏幕。</p>
+<p>屏幕上打开着 Claude Skills 的官方文档。昨晚她花了两个小时，把整个文档通读了一遍。今天早上又读了一遍，大概理解了几个关键点：</p>
+<p>一、Skills 是一个文件夹，放在 <code>~/.claude/skills/</code> 目录下。</p>
+<p>二、每个 Skill 文件夹里必须有一个 Markdown 文件，写明这个 Skill 是干什么的、什么时候触发、具体的执行规则是什么。</p>
+<p>三、Skill 可以包含工具脚本、参考资料、模板文件等辅助内容。</p>
+<p>四、Claude 会根据用户的请求，自动判断是否需要调用某个 Skill。也可以通过斜杠命令 <code>/skill-name</code> 手动调用。</p>
+<p>&quot;听起来不难嘛。&quot; 林小棠自言自语。</p>
+<p>她打开终端，按照文档的指引，创建了一个空的 Skill 文件夹：</p>
+<blockquote>
+<p>mkdir -p ~/.claude/skills/prd-checker</p>
+</blockquote>
+<p>然后在里面创建了一个 Markdown 文件。</p>
+<p>接下来，她卡住了。</p>
+<p>&quot;写什么呢？&quot; 她盯着空白的文档，手指悬在键盘上方。</p>
+<p>文档里说，Skill 的核心是 &quot;instruction&quot;—— 告诉 Claude 该怎么做。但怎么把她脑子里的那些经验、方法论、判断标准，变成 Claude 能理解的指令？</p>
+<p>她想起昨天教小雨的场景。那些话她说得很顺溜，但要写下来，突然就变得困难起来。</p>
+<p>&quot;从简单的开始吧。&quot; 她决定。</p>
+<p>她的第一个目标是做一个 &quot;PRD 结构检查器&quot;—— 一个能够检查 PRD 文档是否包含必要元素的 Skill。这是她能想到的最简单的应用场景。</p>
+<p>她开始往 Markdown 文件里写内容：</p>
+<div class="language-markdown codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-markdown codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token title important punctuation" style="color:#393A34">#</span><span class="token title important"> PRD 结构检查器</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token title important punctuation" style="color:#393A34">##</span><span class="token title important"> 功能描述 检查用户提供的 PRD 文档，判断是否包含必要的结构元素。</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token title important punctuation" style="color:#393A34">##</span><span class="token title important"> 检查项</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token list punctuation" style="color:#393A34">-</span><span class="token plain"> 是否有产品背景说明</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token list punctuation" style="color:#393A34">-</span><span class="token plain"> 是否有用户痛点描述</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token list punctuation" style="color:#393A34">-</span><span class="token plain"> 是否有功能需求列表</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token list punctuation" style="color:#393A34">-</span><span class="token plain"> 是否有优先级说明</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token list punctuation" style="color:#393A34">-</span><span class="token plain"> 是否有验收标准</span><br></span></code></pre></div></div>
+<p>写到这里，她停下来看了看。</p>
+<p>&quot;太简单了。&quot; 她摇摇头，&quot;这跟让 Claude 直接检查有什么区别？&quot;</p>
+<p>她想了想，继续补充：</p>
+<div class="language-markdown codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-markdown codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token title important punctuation" style="color:#393A34">##</span><span class="token title important"> 检查标准</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token title important punctuation" style="color:#393A34">###</span><span class="token title important"> 产品背景说明</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token list punctuation" style="color:#393A34">-</span><span class="token plain"> 必须包含业务目标（不是功能目标）</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token list punctuation" style="color:#393A34">-</span><span class="token plain"> 必须说明为什么现在要做这个功能</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token list punctuation" style="color:#393A34">-</span><span class="token plain"> 必须有量化的预期收益</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token title important punctuation" style="color:#393A34">###</span><span class="token title important"> 用户痛点描述</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token list punctuation" style="color:#393A34">-</span><span class="token plain"> 必须基于真实的用户反馈或数据</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token list punctuation" style="color:#393A34">-</span><span class="token plain"> 必须区分 &quot;用户说的&quot; 和 &quot;用户真正需要的&quot;</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token list punctuation" style="color:#393A34">-</span><span class="token plain"> 不能只是泛泛的 &quot;用户体验不好&quot;</span><br></span></code></pre></div></div>
+<p>写到这里，她感觉有点意思了。</p>
+<p>这些标准，是她这些年踩过的坑。多少次，她见过那种 &quot;背景说明就一句话、痛点描述全是臆想&quot; 的 PRD，最后做出来的功能没人用。</p>
+<p>她继续写：</p>
+<div class="language-markdown codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-markdown codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token title important punctuation" style="color:#393A34">###</span><span class="token title important"> 功能需求列表</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token list punctuation" style="color:#393A34">-</span><span class="token plain"> 每个功能点必须有清晰的边界定义</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token list punctuation" style="color:#393A34">-</span><span class="token plain"> 必须说明正常流程和异常流程</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token list punctuation" style="color:#393A34">-</span><span class="token plain"> 必须列出依赖的前置条件</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token title important punctuation" style="color:#393A34">###</span><span class="token title important"> 优先级说明</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token list punctuation" style="color:#393A34">-</span><span class="token plain"> 必须使用统一的优先级标准（P0/P1/P2 或 Must have/Should have/Nice to have）</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token list punctuation" style="color:#393A34">-</span><span class="token plain"> 优先级判断必须基于业务价值，不能基于 &quot;谁喊得响&quot;</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token title important punctuation" style="color:#393A34">###</span><span class="token title important"> 验收标准</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token list punctuation" style="color:#393A34">-</span><span class="token plain"> 每个功能点必须有可验证的验收条件</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token list punctuation" style="color:#393A34">-</span><span class="token plain"> 验收条件必须是具体的、可测量的，不能是 &quot;用户体验好&quot; 这种模糊表述</span><br></span></code></pre></div></div>
+<p>她写完，保存文件，然后打开 Claude Code，试着用这个 Skill。</p>
+<p>&quot;检查一下这份 PRD。&quot; 她把小雨昨天给她看的那份文档粘贴进去。</p>
+<p>Claude 开始运行。片刻后，输出了一份检查报告。</p>
+<p>林小棠看着报告，眉头渐渐皱起来。</p>
+<p>报告确实按照她定义的检查项进行了检查，但检查结果很 &quot;表面&quot;。比如，它说 &quot;产品背景说明存在&quot;，但没有判断这个背景说明是否真的包含了业务目标；它说 &quot;用户痛点描述存在&quot;，但没有识别出那些痛点描述是真是假。</p>
+<p>&quot;不对。&quot; 她喃喃道，&quot;我写的不够具体。&quot;</p>
+<p>她重新打开 Skill 文件，开始修改。</p>
+<p>这一改，就是整整一个下午。</p>
+<p>她发现，把自己的判断逻辑写成 Claude 能理解的指令，比她想象的要难得多。很多时候，她脑子里的判断是瞬间完成的 —— 一眼扫过去，就知道这份文档哪里有问题。但要把这个 &quot;一眼&quot; 拆解成一步步的检查规则，需要反复提炼和验证。</p>
+<p>比如，&quot;区分 &#x27; 用户说的 &#x27; 和&#x27; 用户真正需要的 &#x27;&quot; 这条规则，她一开始写得很简单。但 Claude 理解不了什么叫 &quot;真正需要的&quot;。她不得不把它展开成更具体的判断标准：</p>
+<div class="language-markdown codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-markdown codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token list punctuation" style="color:#393A34">-</span><span class="token plain"> 如果痛点描述直接引用了用户原话，检查是否有分析用户为什么这么说</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token list punctuation" style="color:#393A34">-</span><span class="token plain"> 如果痛点是抽象概括的，检查是否有支撑这个概括的数据或案例</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token list punctuation" style="color:#393A34">-</span><span class="token plain"> 警惕以下表述：&quot;用户反馈说...&quot;（但没有说多少用户、什么场景）</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token list punctuation" style="color:#393A34">-</span><span class="token plain"> 警惕以下表述：&quot;提升用户体验&quot;（但没有说明现在体验差在哪里）</span><br></span></code></pre></div></div>
+<p>写完这些，她又跑了一遍测试。这次的检查报告比之前详细多了，甚至指出了小雨那份文档里的几个具体问题。</p>
+<p>林小棠靠在椅背上，长舒一口气。</p>
+<p>窗外的天已经暗了。她看了眼时间，下午五点四十分。整整一个下午，她就做了这一件事。</p>
+<p>但奇怪的是，她并不觉得累。相反，有一种久违的充实感。</p>
+<p>这种感觉，她已经很久没有体验过了。</p>
+<p>晚上七点，她给陈洋发了条微信：</p>
+<p>&quot;你有空吗？我做了个 Skill，想让你帮我看看。&quot;</p>
+<p>五分钟后，陈洋回复：&quot;发来。&quot;</p>
+<p>她把 Skill 文件夹打包发给他。又过了十分钟，陈洋发来一条语音。</p>
+<p>&quot;棠姐，你这个思路对的，但实现上有点问题。&quot;</p>
+<p>&quot;什么问题？&quot;</p>
+<p>&quot;你写的那些规则太长了，Claude 每次都要全部读一遍。而且你没有分层 —— 哪些是必须检查的，哪些是建议检查的，哪些是可选的。这样会导致 Claude 每次都做全量检查，效率很低。&quot;</p>
+<p>林小棠皱了皱眉：&quot;那应该怎么改？&quot;</p>
+<p>&quot;你可以把规则拆成几个部分。比如，先做一个 &#x27; 快速检查 &#x27;，只检查最关键的几项；如果快速检查通过了，再做 &#x27; 深度检查 &#x27;。这样用户可以根据需要选择不同的检查深度。&quot;</p>
+<p>&quot;还能这样？&quot;</p>
+<p>&quot;当然。Skill 不是一个死板的模板，你可以设计它的交互逻辑。&quot; 陈洋的语音里带着笑意，&quot;棠姐，你要把它当成一个产品来设计，不能当成一个说明书来写。&quot;</p>
+<p>林小棠愣了一下。</p>
+<p>把 Skill 当成产品来设计。</p>
+<p>这句话像一道闪电，照亮了她脑子里某个一直模糊的角落。</p>
+<p>她是产品经理。设计产品是她的本职工作。她知道怎么做用户分析，怎么设计交互流程，怎么定义功能边界。</p>
+<p>但之前她一直把 Skills 当成 &quot;技术工具&quot; 来看待，觉得这是程序员的领域。她下意识地用 &quot;使用者&quot; 的心态去对待它，而不是 &quot;设计者&quot; 的心态。</p>
+<p>&quot;我懂了。&quot; 她说，&quot;我回去改。&quot;</p>
+<p>周日，林小棠花了一整天时间重构她的 Skill。</p>
+<p>她把 &quot;PRD 结构检查器&quot; 重新设计成了三个层次：</p>
+<p>第一层，&quot;快速诊断&quot;—— 只检查最关键的五项，用于快速判断一份 PRD 是否值得细看。</p>
+<p>第二层，&quot;标准检查&quot;—— 按照完整的检查清单逐项审核，给出详细的问题列表。</p>
+<p>第三层，&quot;深度分析&quot;—— 不仅检查结构，还分析需求本身的合理性，给出优化建议。</p>
+<p>她还加入了 &quot;交互设计&quot;—— 用户可以选择只执行某一层检查，也可以让 Claude 自动判断需要哪个层次的检查。</p>
+<p>改完之后，她用小雨的那五份 PRD 做了测试。结果让她有些惊喜 —— 第一份文档在 &quot;快速诊断&quot; 阶段就被标记了三个严重问题，这些问题恰恰是她昨天一眼看出来的那些。</p>
+<p>&quot;它开始像我了。&quot; 林小棠盯着屏幕上的检查报告，自言自语。</p>
+<p>不是 Claude 变聪明了。而是她把自己的思维方式，教给了 Claude。</p>
+<p>周日晚上十点，林小棠把改好的 Skill 再次发给陈洋。</p>
+<p>陈洋这次给了个大拇指的表情：&quot;这版靠谱多了。明天上班你可以让小雨试试。&quot;</p>
+<p>林小棠放下手机，靠在椅背上。</p>
+<p>窗外的北京夜空一如既往地看不见星星，但她的心里，有什么东西正在慢慢发芽。</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="第四章方法论复活">第四章：方法论复活<a href="#第四章方法论复活" class="hash-link" aria-label="第四章：方法论复活的直接链接" title="第四章：方法论复活的直接链接" translate="no">​</a></h2>
+<p>周一早上，林小棠比平时早到了半个小时。</p>
+<p>她在工位上坐下，打开电脑，把周末做好的 &quot;PRD 检查器&quot;Skill 同步到公司的笔记本上。然后给小雨发了条微信：</p>
+<p>&quot;到了来找我，有东西给你看。&quot;</p>
+<p>九点十分，小雨背着包走进办公区，看到林小棠的消息，眼睛一亮，小跑着过来。</p>
+<p>&quot;棠姐，什么东西？&quot;</p>
+<p>林小棠让她坐下，打开终端，敲入命令：</p>
+<blockquote>
+<p>/prd-checker</p>
+</blockquote>
+<p>然后把小雨上周写的那份 PRD 粘贴进去。</p>
+<p>Claude 开始运行。几秒钟后，一份检查报告出现在屏幕上。</p>
+<p>小雨凑过来看，眼睛越瞪越大。</p>
+<p>&quot;这...... 这怎么跟你上周说的一模一样？&quot; 她指着报告里的第一条问题，&quot;&#x27; 产品背景只说了要做什么，没有说明为什么现在要做 &#x27;—— 你上周也是这么跟我说的！&quot;</p>
+<p>&quot;因为这就是按照我的思路做的。&quot; 林小棠靠在椅背上，&quot;这是我周末弄的一个 Skill，把我检查 PRD 的方法写进去了。&quot;</p>
+<p>小雨愣了几秒，然后像是想明白了什么，脸上露出不可思议的表情。</p>
+<p>&quot;所以...... 以后我写完 PRD，就可以让 Claude 先按照你的方法检查一遍？&quot;</p>
+<p>&quot;对。&quot;</p>
+<p>&quot;那我岂不是随时都有你帮我把关？&quot;</p>
+<p>林小棠笑了笑，没有回答。但她心里涌起一种奇妙的感觉 —— 一种被需要、被延续的感觉。</p>
+<p>小雨拿着报告回去改文档了。林小棠开始处理会员体系优化的项目。</p>
+<p>上午十点，老张把她叫进小会议室。</p>
+<p>&quot;周五 demo 的事，准备得怎么样了？&quot;</p>
+<p>&quot;PRD 今天能定稿，周三之前出原型。&quot;</p>
+<p>&quot;够时间吗？&quot;</p>
+<p>&quot;够。&quot;</p>
+<p>老张点点头，端起咖啡喝了一口，又放下来。</p>
+<p>&quot;小棠，最近在研究什么？&quot;</p>
+<p>林小棠愣了一下：&quot;什么意思？&quot;</p>
+<p>&quot;小雨跟我说你做了个什么......Skill？能自动检查文档的？&quot;</p>
+<p>林小棠心里咯噔一下。她没想到小雨会跟老张说这个。</p>
+<p>&quot;只是个小工具，&quot; 她斟酌着说，&quot;帮助提高文档质量的。&quot;</p>
+<p>&quot;不错。&quot; 老张的表情看不出什么情绪，&quot;这个方向继续搞。如果能提高团队效率，可以推广一下。&quot;</p>
+<p>他说完就端着咖啡走了，留下林小棠在会议室里琢磨这番话的含义。</p>
+<p>下午，林小棠一边写 PRD，一边思考一个问题：如果只是做一个 &quot;检查器&quot;，价值太有限了。检查只能发现问题，不能解决问题。</p>
+<p>真正有价值的，应该是能帮人写出好 PRD 的 Skill。</p>
+<p>但要做到这一点，需要更系统的方法论。</p>
+<p>她打开 Notion，翻到那个积灰已久的文件夹：&quot;产品方法论笔记&quot;。</p>
+<p>最近一次更新是 2024 年 3 月。那时候 Claude 刚开始流行，她觉得这些笔记可能很快就没用了，就再也没有维护过。</p>
+<p>她点开第一个文档：&quot;用户调研五步法&quot;。</p>
+<p>这是她入行第三年总结的方法论，后来经过不断迭代，变成了现在的样子。五个步骤：</p>
+<ul>
+<li class="">定义问题：明确这次调研要回答什么问题</li>
+<li class="">选择对象：确定调研谁、调研多少人</li>
+<li class="">设计问题：用什么方式问、问什么问题</li>
+<li class="">执行访谈：怎么问、怎么追问、怎么记录</li>
+<li class="">提炼洞察：从原始信息中提取有价值的结论</li>
+</ul>
+<p>每个步骤下面，都有详细的注意事项、常见错误、实战案例。</p>
+<p>这些东西，是她踩了无数坑之后总结出来的。比如 &quot;选择对象&quot; 这一步，她曾经犯过一个典型错误：只访谈了活跃用户，忽略了流失用户，结果得出的结论全是偏的。后来她学会了 &quot;要访谈三种用户：深度用户、普通用户、流失用户，缺一不可&quot;。</p>
+<p>再比如 &quot;设计问题&quot; 这一步，她总结了一个 &quot;3-7-1&quot; 原则：3 个开放式问题热身，7 个核心问题深挖，1 个收尾问题收集遗漏。每个核心问题都要准备 3 个追问方向，以应对不同的回答。</p>
+<p>这些细节，网上的教程里是找不到的。</p>
+<p>林小棠盯着这些笔记，突然意识到一件事：她一直觉得 AI 会让这些经验变得无用，但实际上，AI 最缺的恰恰就是这些经验。</p>
+<p>Claude 可以生成一份看起来像样的调研方案，但它不知道为什么要访谈三种用户，不知道 &quot;3-7-1&quot; 原则，不知道怎么设计追问方向。</p>
+<p>它缺的不是能力，而是方法论。</p>
+<p>而她有。</p>
+<p>周二，林小棠开始把 &quot;用户调研五步法&quot; 改造成 Skill。</p>
+<p>这比 &quot;PRD 检查器&quot; 要复杂得多。检查器只需要判断 &quot;有没有&quot;，而调研 Skill 需要引导 Claude &quot;怎么做&quot;。</p>
+<p>她花了一整天时间，把五个步骤的执行逻辑写清楚。每个步骤都包含：</p>
+<ul>
+<li class="">触发条件：什么情况下进入这个步骤</li>
+<li class="">执行指令：Claude 在这个步骤要做什么</li>
+<li class="">检查点：这个步骤完成的标准是什么</li>
+<li class="">常见错误：Claude 要避免的陷阱</li>
+<li class="">示例输出：合格的输出长什么样</li>
+</ul>
+<p>写到 &quot;设计问题&quot; 这一步时，她把 &quot;3-7-1&quot; 原则翻译成了 Claude 能理解的指令：</p>
+<div class="language-markdown codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-markdown codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token title important punctuation" style="color:#393A34">##</span><span class="token title important"> 问题设计规则</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token title important punctuation" style="color:#393A34">###</span><span class="token title important"> 问题结构</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token list punctuation" style="color:#393A34">1.</span><span class="token plain"> 前 3 个问题必须是开放式热身问题 - 目的：建立信任、了解背景</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">   </span><span class="token list punctuation" style="color:#393A34">-</span><span class="token plain"> 示例：&quot;您平时怎么使用我们的产品？&quot;</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token list punctuation" style="color:#393A34">2.</span><span class="token plain"> 中间 7 个问题是核心问题</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">   </span><span class="token list punctuation" style="color:#393A34">-</span><span class="token plain"> 每个核心问题必须准备 3 个追问方向：</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">     a. 深挖原因（&quot;为什么会这样想？&quot;）</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">     b. 场景还原（&quot;能举个具体的例子吗？&quot;）</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">     c. 对比验证（&quot;和其他产品比呢？&quot;）</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token list punctuation" style="color:#393A34">3.</span><span class="token plain"> 最后 1 个问题是收尾问题</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">   </span><span class="token list punctuation" style="color:#393A34">-</span><span class="token plain"> 目的：收集遗漏、建立后续联系</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">   </span><span class="token list punctuation" style="color:#393A34">-</span><span class="token plain"> 示例：&quot;还有什么我们没聊到但您想说的吗？&quot;</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token title important punctuation" style="color:#393A34">###</span><span class="token title important"> 必须避免的问题类型</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token list punctuation" style="color:#393A34">-</span><span class="token plain"> 引导性问题：&quot;您是不是觉得这个功能很好用？&quot;</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token list punctuation" style="color:#393A34">-</span><span class="token plain"> 假设性问题：&quot;如果我们加了这个功能，您会用吗？&quot;</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token list punctuation" style="color:#393A34">-</span><span class="token plain"> 复合问题：&quot;您觉得这个功能好用吗？使用频率高吗？&quot;</span><br></span></code></pre></div></div>
+<p>写着写着，林小棠进入了一种奇妙的状态。</p>
+<p>她发现，把这些经验写成结构化的规则，本身就是一个重新梳理的过程。很多她平时 &quot;凭感觉&quot; 做的事情，在写成规则的时候，必须追问自己 &quot;为什么这么做&quot;，必须把隐性知识显性化。</p>
+<p>这个过程，比她想象的要累，但也比她想象的要有价值。</p>
+<p>周三中午，陈洋在茶水间遇到她。</p>
+<p>&quot;棠姐，你这两天憔悴了不少啊。&quot;</p>
+<p>林小棠揉了揉眼睛：&quot;在做一个新 Skill，用户调研的。&quot;</p>
+<p>&quot;又是产品经理的领域？&quot;</p>
+<p>&quot;嗯。&quot; 她倒了杯咖啡，&quot;我发现这事挺有意思的。把自己的方法论写成 Skill，比我想象的难，但也比我想象的有成就感。&quot;</p>
+<p>陈洋靠在饮水机旁边，思考了几秒钟。</p>
+<p>&quot;你知道吗，网上现在有很多人在分享自己做的 Skills。但大部分都是程序员做的，给程序员用的。产品经理领域的 Skill，我还真没见过几个。&quot;</p>
+<p>&quot;真的？&quot;</p>
+<p>&quot;真的。&quot; 陈洋说，&quot;你要是把这个 &#x27; 用户调研 &#x27;Skill 做好了，说不定能火。&quot;</p>
+<p>林小棠笑了笑，没当真。</p>
+<p>周三晚上，她把 &quot;用户调研五步法&quot;Skill 的初版完成了。</p>
+<p>她用一个假设的调研任务测试了一下。Claude 按照她的方法论，先确认了调研问题，然后建议了三类访谈对象，接着生成了一份问题清单 —— 包括 3 个热身问题、7 个核心问题（每个都有追问方向）、1 个收尾问题。</p>
+<p>最后，Claude 还给出了一份 &quot;调研执行检查表&quot;，列出了执行过程中需要注意的事项。</p>
+<p>林小棠看着这份输出，突然有些恍惚。</p>
+<p>这份调研方案，比 Claude 之前自由发挥的那些版本，好了不是一点半点。它不仅结构完整，而且每个细节都透着 &quot;老司机&quot; 的味道 —— 因为这些细节，本来就是她这个 &quot;老司机&quot; 的经验。</p>
+<p>但最让她感慨的是另一件事。</p>
+<p>为了把这个 Skill 做好，她把自己八年的调研经验重新梳理了一遍。很多她以为自己早就忘记的东西，在写的过程中重新浮现出来。那些踩过的坑、总结的教训、悟出的道理，原来一直都在她的脑子里，只是很久没有被调用过了。</p>
+<p>AI 来了之后，她以为这些经验会变得无用。但现在她发现，AI 不是来替代她的，而是来放大她的。</p>
+<p>只要她愿意把自己的经验教给它。</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="第五章新物种">第五章：新物种<a href="#第五章新物种" class="hash-link" aria-label="第五章：新物种的直接链接" title="第五章：新物种的直接链接" translate="no">​</a></h2>
+<p>周四晚上十一点，林小棠盯着屏幕上的报错信息，感觉一股凉意从脚底升上来。</p>
+<p>明天就是 demo 了。</p>
+<p>她花了一整周时间，把 &quot;用户调研五步法&quot;Skill 打磨得差不多了。下午她还得意洋洋地跟陈洋说 &quot;准备得差不多了&quot;。</p>
+<p>结果刚才进行最后一轮测试的时候，Skill 出了问题。</p>
+<p>问题出在 &quot;设计问题&quot; 那一步。当用户输入的调研主题比较复杂时，Claude 在生成核心问题的时候会跳过某些规则，导致输出的问题清单不符合 &quot;3-7-1&quot; 的结构。</p>
+<p>林小棠排查了半天，发现是她写的指令有歧义。在某些边界情况下，Claude 会误读她的意图。</p>
+<p>&quot;到底该怎么写啊......&quot; 她揉着太阳穴，感觉脑子里乱成一团浆糊。</p>
+<p>这种感觉太熟悉了。每次做产品做到关键节点，总会遇到这种 &quot;明明差一点就成了&quot; 的情况。她以为做 Skill 会不一样，结果发现本质上是一样的 —— 都是在跟细节死磕。</p>
+<p>她打开微信，想找陈洋求助。但手指悬在屏幕上，又放下了。</p>
+<p>十一点多了，别人都有自己的生活。这个坑，得自己爬。</p>
+<p>她深吸一口气，重新打开 Skill 文件，从头开始审视自己写的每一行指令。</p>
+<p>凌晨一点，她终于找到了问题所在。</p>
+<p>原来是她在 &quot;核心问题&quot; 的定义里，用了一个模糊的表述：&quot;围绕调研主题设计 7 个核心问题&quot;。这个 &quot;围绕&quot; 太宽泛了，Claude 在处理复杂主题时，会把 &quot;围绕&quot; 理解成 &quot;相关的都算&quot;，结果生成了一堆只是沾边、但不够聚焦的问题。</p>
+<p>她把这个表述改成了更精确的版本：&quot;从调研主题中拆解出 3-5 个核心假设，每个假设设计 1-2 个问题进行验证&quot;。</p>
+<p>改完之后，她又跑了一遍测试。</p>
+<p>这次，Claude 的输出完美符合预期。</p>
+<p>林小棠靠在椅背上，长舒一口气。窗外的北京已经彻底安静下来，只有远处偶尔驶过的汽车声。</p>
+<p>她看了眼时间，凌晨一点四十七分。</p>
+<p>手机震动了一下。是陈洋发来的消息：</p>
+<p>&quot;棠姐还没睡？我看到你的 Skill 仓库刚有更新。&quot;</p>
+<p>林小棠愣了一下。她把 Skill 存到了一个 Git 仓库里，方便版本管理。没想到陈洋这么晚还在关注。</p>
+<p>&quot;你怎么也没睡？&quot; 她回复。</p>
+<p>&quot;debug 到现在。&quot; 陈洋发了个苦笑的表情，&quot;你那边搞定了吗？&quot;</p>
+<p>&quot;刚搞定。&quot;</p>
+<p>&quot;辛苦。明天 demo 加油。&quot;</p>
+<p>林小棠放下手机，闭上眼睛休息了一会儿。</p>
+<p>这一周发生了太多事。从最初的焦虑和抵触，到现在的...... 她也说不清是什么。但有一点是确定的：她不再觉得自己在被 AI 取代了。</p>
+<p>她打开 Notion，翻到那个方法论笔记文件夹，发现自己这周已经在里面新增了好几个文档 —— 都是在做 Skill 的过程中，重新整理出来的内容。</p>
+<p>这些东西，原本可能会永远躺在她的脑子里，慢慢被遗忘。但现在，它们被写成了结构化的规则，变成了可以被调用、被复用、被传承的知识。</p>
+<p>这是她做过的最有意义的事情之一。</p>
+<hr>
+<p>周五上午十点，会议室里坐满了人。</p>
+<p>老张坐在主位，旁边是公司的几个高层。林小棠站在投影仪前，手心微微出汗。</p>
+<p>&quot;今天给大家汇报的是会员体系优化项目。&quot; 她说，&quot;除了产品方案本身，我还想介绍一个我们在这个项目中尝试的新方法。&quot;</p>
+<p>她点开第一页 PPT。</p>
+<p>接下来的四十分钟，她完整地演示了两件事：</p>
+<p>第一，会员体系优化的产品方案。这是她本职工作的产出，中规中矩，没有大的问题。</p>
+<p>第二，她这周做的两个 Skill——&quot;PRD 检查器&quot; 和 &quot;用户调研助手&quot;。她展示了这两个 Skill 如何工作，以及它们如何帮助团队提高文档质量和调研效率。</p>
+<p>在演示 &quot;用户调研助手&quot; 的时候，她请小雨上来做了一个现场测试。小雨输入了一个调研主题，Claude 按照 Skill 里的方法论，一步步引导她完成了调研设计。</p>
+<p>整个过程流畅、专业，完全不像是 AI 自由发挥的那种 &quot;看起来像样但经不起推敲&quot; 的输出。</p>
+<p>&quot;这是怎么做到的？&quot; 其中一个高层问。</p>
+<p>&quot;因为这个 Skill 里，写的是我的方法论。&quot; 林小棠说，&quot;我把我这些年做用户调研的经验，翻译成了 Claude 能理解的规则。所以它的输出，不是随机生成的，而是按照我的思路来执行的。&quot;</p>
+<p>会议室里安静了几秒。</p>
+<p>老张端着咖啡，表情看不出什么情绪。然后他开口了：</p>
+<p>&quot;小棠，你这个 Skill，能在团队里推广吗？&quot;</p>
+<p>&quot;可以。&quot; 林小棠说，&quot;而且不只是推广。我觉得我们可以建立一个团队级的 Skill 库，把各个岗位的方法论都沉淀进去。这样，新人可以通过 Skill 快速学习前人的经验，老人可以通过 Skill 放大自己的价值。&quot;</p>
+<p>&quot;这个想法不错。&quot; 老张点点头，&quot;但有一个问题 —— 谁来做这件事？&quot;</p>
+<p>林小棠没有立刻回答。她知道老张在试探什么。</p>
+<p>&quot;我可以牵头。&quot; 她说，&quot;但需要技术支持，还需要公司的时间和资源投入。&quot;</p>
+<p>老张看了看旁边的高层，高层微微点头。</p>
+<p>&quot;行。&quot; 老张说，&quot;这个方向可以探索。你先出个方案，下周我们再聊。&quot;</p>
+<p>会议结束后，林小棠收拾东西准备离开。小雨追上来。</p>
+<p>&quot;棠姐，你刚才演示的那个调研 Skill，能给我也装一个吗？&quot;</p>
+<p>&quot;你之前不是用过了吗？&quot;</p>
+<p>&quot;我想说的是......&quot; 小雨有点不好意思，&quot;能不能把它分享给我，让我自己也能用。我以后想学着自己做 Skill。&quot;</p>
+<p>林小棠看着她，突然想起自己八年前刚入行的样子。那时候她也是这样，见到厉害的前辈，就巴不得把人家的本事全学会。</p>
+<p>&quot;当然可以。&quot; 她说，&quot;下午我发给你。&quot;</p>
+<p>小雨开心地走了。</p>
+<p>林小棠一个人站在会议室门口，看着窗外的望京 SOHO。</p>
+<p>阳光难得地洒在玻璃幕墙上，反射出刺眼的光芒。和一周前那个灰蒙蒙的夜晚相比，今天的北京明亮了很多。</p>
+<p>她想起这一周发生的事情。</p>
+<p>一周前，她还在为 &quot;被 AI 取代&quot; 而焦虑，觉得自己辛苦积累的经验在 AI 面前一文不值。</p>
+<p>一周后，她发现那些经验不是负担，而是财富。AI 不是来取代她的，而是来放大她的 —— 前提是，她得愿意把自己的知识教给它。</p>
+<p>这是一种全新的关系。不是人替代机器，也不是机器取代人，而是人和机器的共生。</p>
+<p>她掏出手机，打开备忘录，写下一行字：</p>
+<p>&quot;产品经理的新定位：不是被 AI 替代的人，而是训练 AI 的人。&quot;</p>
+<p>写完，她又想了想，改成了另一个版本：</p>
+<p>&quot;不是 AI 会取代你，而是会用 AI 的人会取代你。但更准确地说 —— 会训练 AI 的人，才是真正的新物种。&quot;</p>
+<hr>
+<p>下午五点，林小棠把 &quot;用户调研助手&quot;Skill 发给了小雨。</p>
+<p>顺便，她还把这个 Skill 分享到了一个技术社区的论坛上，标题是：</p>
+<p>《一个产品经理做的用户调研 Skill，把我 8 年的方法论都塞进去了》</p>
+<p>发完之后，她关上电脑，拎起包，走向电梯。</p>
+<p>今天是周五，这一周终于结束了。</p>
+<p>走出望京 SOHO 大门的时候，她的手机震动了一下。是陈洋发来的消息：</p>
+<p>&quot;棠姐，你那个帖子火了。已经有 200 多个收藏了。&quot;</p>
+<p>林小棠愣了一下，打开论坛一看，帖子下面果然有很多评论：</p>
+<p>&quot;终于有产品经理做的 Skill 了！&quot;</p>
+<p>&quot;这个 &#x27;3-7-1&#x27; 原则太实用了，收藏了。&quot;</p>
+<p>&quot;能问一下是怎么想到把方法论做成 Skill 的吗？&quot;</p>
+<p>&quot;求出一个竞品分析的 Skill！&quot;</p>
+<p>她看着这些评论，嘴角不自觉地上扬。</p>
+<p>这一周，她从一个焦虑的 &quot;AI 的人肉校验员&quot;，变成了一个开始探索 &quot;人与 AI 如何共生&quot; 的探索者。她不知道这条路会通向哪里，但至少，她不再害怕了。</p>
+<p>手机又震动了。这次是老张的消息：</p>
+<p>&quot;方案下周一给我，别忘了。&quot;</p>
+<p>林小棠回复了一个 &quot;收到&quot;，然后把手机揣进口袋，走进了北京冬日的黄昏里。</p>
+<p>望京 SOHO 的玻璃幕墙反射着落日的余晖，把她的影子拉得很长很长。</p>
+<p>八年前，她来北京的时候，怀揣着 &quot;改变世界&quot; 的梦想。后来她发现，改变世界太难了，能改变自己就不错了。</p>
+<p>但今天，她觉得自己可能找到了一个更务实的方向：</p>
+<p>不是改变世界，而是教会 AI 如何理解这个世界。</p>
+<p>用她自己的方式。</p>
+<hr>
+<p>（完）</p>
+</div></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="文件选项卡"><a class="pagination-nav__link pagination-nav__link--prev" href="/docs/excerpts/AI/llm-translation-better-idiom"><div class="pagination-nav__sublabel">上一页</div><div class="pagination-nav__label">一句简单的提示词就可以让 LLM 在翻译的时候更好的“意译”</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/docs/excerpts/AI/translator-gpt-prompt-v2-1-improvement"><div class="pagination-nav__sublabel">下一页</div><div class="pagination-nav__label">翻译 GPT 的提示词更新和优化</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#第一章ai-的校验员" class="table-of-contents__link toc-highlight">第一章：AI 的校验员</a></li><li><a href="#第二章年轻人的玩具" class="table-of-contents__link toc-highlight">第二章：年轻人的玩具</a></li><li><a href="#第三章第一个-skill" class="table-of-contents__link toc-highlight">第三章：第一个 Skill</a></li><li><a href="#第四章方法论复活" class="table-of-contents__link toc-highlight">第四章：方法论复活</a></li><li><a href="#第五章新物种" class="table-of-contents__link toc-highlight">第五章：新物种</a></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2026 Fan's life, Inc. Built with Docusaurus.</div></div></div></footer></div>
+</body>
+</html>
