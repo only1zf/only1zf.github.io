@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="zh-Hans" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-chats/IaC-sec" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.9.2">
+<title data-rh="true">代码安全与 IaC 扫描实战指南：CodeQL 及开源工具集 | Fan&#x27;s life</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://only1zf.com/img/docusaurus-social-card.jpg"><meta data-rh="true" name="twitter:image" content="https://only1zf.com/img/docusaurus-social-card.jpg"><meta data-rh="true" property="og:url" content="https://only1zf.com/docs/chats/IaC-sec"><meta data-rh="true" property="og:locale" content="zh_Hans"><meta data-rh="true" name="docusaurus_locale" content="zh-Hans"><meta data-rh="true" name="docsearch:language" content="zh-Hans"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="代码安全与 IaC 扫描实战指南：CodeQL 及开源工具集 | Fan&#x27;s life"><meta data-rh="true" name="description" content="本文档旨在为开发人员与安全工程师提供一套完整的代码安全检查方案。涵盖了如何在 VS Code 中使用 GitHub CodeQL 进行深度逻辑漏洞分析，以及针对 Terraform 等 IaC（基础设施即代码）场景的开源工具推荐。"><meta data-rh="true" property="og:description" content="本文档旨在为开发人员与安全工程师提供一套完整的代码安全检查方案。涵盖了如何在 VS Code 中使用 GitHub CodeQL 进行深度逻辑漏洞分析，以及针对 Terraform 等 IaC（基础设施即代码）场景的开源工具推荐。"><link data-rh="true" rel="icon" href="/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://only1zf.com/docs/chats/IaC-sec"><link data-rh="true" rel="alternate" href="https://only1zf.com/docs/chats/IaC-sec" hreflang="zh-Hans"><link data-rh="true" rel="alternate" href="https://only1zf.com/docs/chats/IaC-sec" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"代码安全与 IaC 扫描实战指南：CodeQL 及开源工具集","item":"https://only1zf.com/docs/chats/IaC-sec"}]}</script><link rel="stylesheet" href="/assets/css/styles.1b12b40b.css">
+<script src="/assets/js/runtime~main.032d2074.js" defer="defer"></script>
+<script src="/assets/js/main.88c3874f.js" defer="defer"></script>
+</head>
+<body class="navigation-with-keyboard">
+<svg style="display: none;"><defs>
+<symbol id="theme-svg-external-link" viewBox="0 0 24 24"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||"light"),document.documentElement.setAttribute("data-theme-choice",t||"light")}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><link rel="preload" as="image" href="/img/logo.svg"><div role="region" aria-label="跳到主要内容"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">跳到主要内容</a></div><nav aria-label="主导航" class="theme-layout-navbar navbar navbar--fixed-top"><div class="navbar__inner"><div class="theme-layout-navbar-left navbar__items"><button aria-label="切换导航栏" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/"><div class="navbar__logo"><img src="/img/logo.svg" alt="My Site Logo" class="themedComponent_mlkZ themedComponent--light_NVdE"><img src="/img/logo.svg" alt="My Site Logo" class="themedComponent_mlkZ themedComponent--dark_xIcU"></div><b class="navbar__title text--truncate">Fan&#x27;s life</b></a><a class="navbar__item navbar__link" href="/blog">Blog</a><a class="navbar__item navbar__link" href="/docs/commentary">读考</a><a class="navbar__item navbar__link" href="/docs/prompts/dict">Prompts</a><a class="navbar__item navbar__link" href="/docs/refs/REST-Client">References</a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/docs/chats/IaC-sec">Chats</a><a class="navbar__item navbar__link" href="/docs/excerpts/AI/a-common-translation-prompt-for-different-languages">Excerpts</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="system mode" aria-label="切换浅色/暗黑模式（当前为system mode）"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill="currentColor" d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="回到顶部" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="文档侧边栏" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" href="/docs/chats/IaC-sec"><span title="代码安全与 IaC 扫描实战指南：CodeQL 及开源工具集" class="linkLabel_WmDU">代码安全与 IaC 扫描实战指南：CodeQL 及开源工具集</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/docs/chats/cloudflare-20251118"><span title="Cloudflare 2025 年 11 月 18 日严重故障总结" class="linkLabel_WmDU">Cloudflare 2025 年 11 月 18 日严重故障总结</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/docs/chats/commercial-pension"><span title="商业养老金领取指南：收益、误区与决策手册" class="linkLabel_WmDU">商业养老金领取指南：收益、误区与决策手册</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/docs/chats/git-crypt"><span title="git-crypt" class="linkLabel_WmDU">git-crypt</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/docs/chats/linux-udp"><span title="Linux下本机UDP性能调优" class="linkLabel_WmDU">Linux下本机UDP性能调优</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/docs/chats/vscode-rest-client"><span title="vscode-rest-client" class="linkLabel_WmDU">vscode-rest-client</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/docs/chats/yt-dlp-subs"><span title="yt-dlp 字幕操作技术手册" class="linkLabel_WmDU">yt-dlp 字幕操作技术手册</span></a></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="页面路径"><ul class="breadcrumbs"><li class="breadcrumbs__item"><a aria-label="主页面" class="breadcrumbs__link" href="/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link">代码安全与 IaC 扫描实战指南：CodeQL 及开源工具集</span></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">本页总览</button></div><div class="theme-doc-markdown markdown"><header><h1>代码安全与 IaC 扫描实战指南：CodeQL 及开源工具集</h1></header>
+<p>本文档旨在为开发人员与安全工程师提供一套完整的代码安全检查方案。涵盖了如何在 VS Code 中使用 GitHub CodeQL 进行深度逻辑漏洞分析，以及针对 Terraform 等 IaC（基础设施即代码）场景的开源工具推荐。</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="第一部分codeql-使用指南-通用编程语言">第一部分：CodeQL 使用指南 (通用编程语言)<a href="#第一部分codeql-使用指南-通用编程语言" class="hash-link" aria-label="第一部分：CodeQL 使用指南 (通用编程语言)的直接链接" title="第一部分：CodeQL 使用指南 (通用编程语言)的直接链接" translate="no">​</a></h2>
+<p>CodeQL 是 GitHub 推出的语义代码分析引擎，适用于 Java, Python, JavaScript, C++, Go 等通用语言的深度安全扫描。</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-核心工作原理">1. 核心工作原理<a href="#1-核心工作原理" class="hash-link" aria-label="1. 核心工作原理的直接链接" title="1. 核心工作原理的直接链接" translate="no">​</a></h3>
+<p>理解 CodeQL 的机制有助于更高效地使用它。它的核心理念是将“代码”转换为“数据”。</p>
+<ul>
+<li class=""><strong>代码数据库化 (Code as Data)</strong>：<!-- -->
+<ul>
+<li class="">CodeQL 不直接扫描源代码文本。</li>
+<li class=""><strong>解析 (Parsing)</strong> &amp; <strong>建模 (Modeling)</strong>：它分析代码的抽象语法树 (AST)，提取变量、函数调用、类继承等关系。</li>
+<li class=""><strong>快照 (Snapshot)</strong>：将这些关系存储为关系型数据库（<code>.db</code> 文件夹），形成代码的“逻辑全景图”。</li>
+</ul>
+</li>
+<li class=""><strong>查询语言 (QL)</strong>：<!-- -->
+<ul>
+<li class="">用户使用 QL 语言编写查询语句（类似于 SQL）。</li>
+<li class=""><strong>示例逻辑</strong>：查找所有“未经过滤”且“来自 HTTP 请求”并最终“流入 SQL 执行函数”的数据路径。</li>
+</ul>
+</li>
+<li class=""><strong>数据流分析 (Data Flow Analysis)</strong>：<!-- -->
+<ul>
+<li class="">这是 CodeQL 的核心优势。它能进行<strong>污点追踪 (Taint Analysis)</strong>，跨越多个文件和函数追踪数据的流向，从而发现复杂的逻辑漏洞（如 SQL 注入、XSS）。</li>
+</ul>
+</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-环境配置与安装">2. 环境配置与安装<a href="#2-环境配置与安装" class="hash-link" aria-label="2. 环境配置与安装的直接链接" title="2. 环境配置与安装的直接链接" translate="no">​</a></h3>
+<p>在 VS Code 中使用 CodeQL 前，需完成以下准备：</p>
+<ol>
+<li class=""><strong>安装 VS Code 扩展</strong>：在扩展市场搜索并安装官方 <strong>CodeQL</strong> 插件。</li>
+<li class=""><strong>安装 CodeQL CLI</strong>：<!-- -->
+<ul>
+<li class="">插件通常会自动引导安装。</li>
+<li class="">若需手动安装，请访问 <a href="https://github.com/github/codeql-cli-binaries/releases" target="_blank" rel="noopener noreferrer" class="">GitHub CodeQL CLI Releases</a>，下载并配置环境变量，或在 VS Code 设置中指定 <code>CodeQL CLI: Executable Path</code>。</li>
+</ul>
+</li>
+<li class=""><strong>获取查询库</strong>：克隆 <a href="https://github.com/github/vscode-codeql-starter" target="_blank" rel="noopener noreferrer" class="">vscode-codeql-starter</a> 仓库到本地，该仓库包含标准库和针对各语言的安全查询规则。</li>
+</ol>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-操作流程从创建数据库到扫描">3. 操作流程：从创建数据库到扫描<a href="#3-操作流程从创建数据库到扫描" class="hash-link" aria-label="3. 操作流程：从创建数据库到扫描的直接链接" title="3. 操作流程：从创建数据库到扫描的直接链接" translate="no">​</a></h3>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="步骤一创建-codeql-数据库">步骤一：创建 CodeQL 数据库<a href="#步骤一创建-codeql-数据库" class="hash-link" aria-label="步骤一：创建 CodeQL 数据库的直接链接" title="步骤一：创建 CodeQL 数据库的直接链接" translate="no">​</a></h4>
+<p>在项目根目录下打开终端，根据语言类型执行命令：</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain"># 解释型语言 (Python/JavaScript/TypeScript)</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">codeql database create codeql-db --language=javascript</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"># 编译型语言 (Java/C++/Go) - 必须提供构建命令</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">codeql database create codeql-db --language=java --command=&quot;mvn clean install&quot;</span><br></span></code></pre></div></div>
+<ul>
+<li class=""><code>codeql-db</code>：生成的数据库文件夹名称。</li>
+<li class=""><code>--language</code>：支持 <code>java</code>, <code>javascript</code>, <code>python</code>, <code>go</code>, <code>cpp</code>, <code>csharp</code>, <code>ruby</code> 等。</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="步骤二导入数据库">步骤二：导入数据库<a href="#步骤二导入数据库" class="hash-link" aria-label="步骤二：导入数据库的直接链接" title="步骤二：导入数据库的直接链接" translate="no">​</a></h4>
+<ol>
+<li class="">点击 VS Code 侧边栏的 <strong>CodeQL 图标</strong>。</li>
+<li class="">在 &quot;Databases&quot; 面板中，选择 <strong>&quot;Choose Database from folder&quot;</strong>。</li>
+<li class="">选中上一步生成的 <code>codeql-db</code> 文件夹。</li>
+<li class="">确保该数据库在列表中被选中（显示为当前活动数据库）。</li>
+</ol>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="步骤三运行查询">步骤三：运行查询<a href="#步骤三运行查询" class="hash-link" aria-label="步骤三：运行查询的直接链接" title="步骤三：运行查询的直接链接" translate="no">​</a></h4>
+<ol>
+<li class="">将下载的 <code>vscode-codeql-starter</code> 添加到 VS Code 工作区。</li>
+<li class=""><strong>运行标准查询</strong>：<!-- -->
+<ul>
+<li class="">进入对应语言的目录（如 <code>ql/javascript/ql/src/Security</code>）。</li>
+<li class="">右键点击 <code>.ql</code> 文件（如 <code>CWE-079</code>），选择 <strong>&quot;CodeQL: Run Query on Selected Database&quot;</strong>。</li>
+</ul>
+</li>
+<li class=""><strong>运行快速查询</strong>：<!-- -->
+<ul>
+<li class="">按 <code>Ctrl+Shift+P</code>，输入 <code>CodeQL: Quick Query</code>，编写自定义查询并运行。</li>
+</ul>
+</li>
+</ol>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="步骤四分析结果">步骤四：分析结果<a href="#步骤四分析结果" class="hash-link" aria-label="步骤四：分析结果的直接链接" title="步骤四：分析结果的直接链接" translate="no">​</a></h4>
+<ul>
+<li class="">结果会在 <strong>Query Results</strong> 面板显示。</li>
+<li class="">点击具体的漏洞条目，CodeQL 会展示完整的<strong>数据流路径 (Data Flow Path)</strong>，高亮显示数据从源头 (Source) 到漏点 (Sink) 的传递过程。</li>
+</ul>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="第二部分iac-安全扫描指南-terraformdocker-等">第二部分：IaC 安全扫描指南 (Terraform/Docker 等)<a href="#第二部分iac-安全扫描指南-terraformdocker-等" class="hash-link" aria-label="第二部分：IaC 安全扫描指南 (Terraform/Docker 等)的直接链接" title="第二部分：IaC 安全扫描指南 (Terraform/Docker 等)的直接链接" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-codeql-的局限性">1. CodeQL 的局限性<a href="#1-codeql-的局限性" class="hash-link" aria-label="1. CodeQL 的局限性的直接链接" title="1. CodeQL 的局限性的直接链接" translate="no">​</a></h3>
+<p><strong>CodeQL 目前不原生支持 Terraform (HCL)。</strong></p>
+<ul>
+<li class=""><strong>原因</strong>：CodeQL 专长于分析过程式语言的逻辑流和数据流，而 Terraform 是声明式语言（描述最终状态），不适用复杂的污点追踪模型。</li>
+<li class=""><strong>适用范围</strong>：仅限于 C/C++, C#, Go, Java, JS/TS, Python, Ruby, Swift。</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-推荐的开源替代方案">2. 推荐的开源替代方案<a href="#2-推荐的开源替代方案" class="hash-link" aria-label="2. 推荐的开源替代方案的直接链接" title="2. 推荐的开源替代方案的直接链接" translate="no">​</a></h3>
+<p>针对 IaC、容器及敏感信息扫描，以下工具是行业标准，且均提供免费开源版本和 VS Code 插件。</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="a-全能型-iac-扫描器-推荐">A. 全能型 IaC 扫描器 (推荐)<a href="#a-全能型-iac-扫描器-推荐" class="hash-link" aria-label="A. 全能型 IaC 扫描器 (推荐)的直接链接" title="A. 全能型 IaC 扫描器 (推荐)的直接链接" translate="no">​</a></h4>
+<ul>
+<li class=""><strong>Trivy</strong> (by Aqua Security)<!-- -->
+<ul>
+<li class=""><strong>定位</strong>：一站式安全扫描工具。</li>
+<li class=""><strong>能力</strong>：同时支持扫描 Terraform、Dockerfile、Kubernetes YAML、Helm Chart 以及项目依赖包（SCA）。</li>
+<li class=""><strong>特点</strong>：速度极快，规则库更新频繁，VS Code 插件成熟。</li>
+</ul>
+</li>
+<li class=""><strong>Checkov</strong> (by Bridgecrew)<!-- -->
+<ul>
+<li class=""><strong>定位</strong>：专注于 IaC 的静态分析工具。</li>
+<li class=""><strong>能力</strong>：内置 1000+ 策略，覆盖 AWS/Azure/GCP 最佳实践。</li>
+<li class=""><strong>特点</strong>：易于集成 CI/CD，支持自动修复建议，对 Terraform 支持极佳。</li>
+</ul>
+</li>
+<li class=""><strong>KICS</strong> (by Checkmarx)<!-- -->
+<ul>
+<li class=""><strong>能力</strong>：支持 Ansible, Pulumi, Terraform, K8s 等多种格式。</li>
+<li class=""><strong>特点</strong>：基于 Rego 语言，规则灵活。</li>
+</ul>
+</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="b-容器与-dockerfile-专用">B. 容器与 Dockerfile 专用<a href="#b-容器与-dockerfile-专用" class="hash-link" aria-label="B. 容器与 Dockerfile 专用的直接链接" title="B. 容器与 Dockerfile 专用的直接链接" translate="no">​</a></h4>
+<ul>
+<li class=""><strong>Hadolint</strong>
+<ul>
+<li class=""><strong>定位</strong>：Dockerfile 语法与安全检查。</li>
+<li class=""><strong>特点</strong>：检查镜像层级优化及安全规范（如是否使用 root 用户）。</li>
+</ul>
+</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="c-敏感信息防泄露-secret-scanning">C. 敏感信息防泄露 (Secret Scanning)<a href="#c-敏感信息防泄露-secret-scanning" class="hash-link" aria-label="C. 敏感信息防泄露 (Secret Scanning)的直接链接" title="C. 敏感信息防泄露 (Secret Scanning)的直接链接" translate="no">​</a></h4>
+<ul>
+<li class=""><strong>Gitleaks</strong>
+<ul>
+<li class=""><strong>定位</strong>：Git 仓库历史扫描。</li>
+<li class=""><strong>能力</strong>：检测代码中硬编码的密码、API Key、Token。</li>
+<li class=""><strong>特点</strong>：轻量级，常作为 Git Hook 使用，防止敏感信息提交。</li>
+</ul>
+</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="d-轻量级代码分析-codeql-的快速替代">D. 轻量级代码分析 (CodeQL 的快速替代)<a href="#d-轻量级代码分析-codeql-的快速替代" class="hash-link" aria-label="D. 轻量级代码分析 (CodeQL 的快速替代)的直接链接" title="D. 轻量级代码分析 (CodeQL 的快速替代)的直接链接" translate="no">​</a></h4>
+<ul>
+<li class=""><strong>Semgrep</strong>
+<ul>
+<li class=""><strong>定位</strong>：基于模式匹配的静态分析工具。</li>
+<li class=""><strong>对比</strong>：比 CodeQL 快得多，配置更简单（无需编译数据库），但深度数据流分析能力稍弱。</li>
+<li class=""><strong>适用</strong>：快速扫描多种语言（包括 Terraform）的通用安全问题。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="第三部分工具选型总结表">第三部分：工具选型总结表<a href="#第三部分工具选型总结表" class="hash-link" aria-label="第三部分：工具选型总结表的直接链接" title="第三部分：工具选型总结表的直接链接" translate="no">​</a></h2>
+<p>根据你的具体需求，请参考下表选择最合适的工具：</p>
+<table><thead><tr><th style="text-align:left">场景/需求</th><th style="text-align:left">推荐工具</th><th style="text-align:left">核心优势</th><th style="text-align:left">VS Code 插件</th></tr></thead><tbody><tr><td style="text-align:left"><strong>深度逻辑漏洞分析</strong> (Java/Py/JS/Go)</td><td style="text-align:left"><strong>CodeQL</strong></td><td style="text-align:left">强大的数据流分析，能够发现复杂漏洞</td><td style="text-align:left">CodeQL</td></tr><tr><td style="text-align:left"><strong>通用 IaC 安全</strong> (Terraform/K8s)</td><td style="text-align:left"><strong>Trivy</strong> / <strong>Checkov</strong></td><td style="text-align:left">覆盖面广，规则库完善，针对云原生优化</td><td style="text-align:left">Trivy / Checkov</td></tr><tr><td style="text-align:left"><strong>快速代码检查</strong> (多语言支持)</td><td style="text-align:left"><strong>Semgrep</strong></td><td style="text-align:left">极速扫描，配置简单，支持 IaC</td><td style="text-align:left">Semgrep</td></tr><tr><td style="text-align:left"><strong>防止密码泄露</strong></td><td style="text-align:left"><strong>Gitleaks</strong></td><td style="text-align:left">专门针对密钥和 Token 的扫描</td><td style="text-align:left">(通常作为 CLI/Pre-commit 使用)</td></tr><tr><td style="text-align:left"><strong>Dockerfile 优化</strong></td><td style="text-align:left"><strong>Hadolint</strong></td><td style="text-align:left">专注 Docker 最佳实践</td><td style="text-align:left">hadolint</td></tr></tbody></table>
+<p><strong>最佳实践建议</strong>：
+在现代开发流程中，建议组合使用：</p>
+<ol>
+<li class="">使用 <strong>CodeQL</strong> 定期对主业务代码进行深度扫描（如在 CI 流水线中）。</li>
+<li class="">使用 <strong>Trivy</strong> 或 <strong>Checkov</strong> 在 VS Code 中实时检查 Terraform 和 Docker 配置。</li>
+<li class="">使用 <strong>Gitleaks</strong> 作为 Pre-commit hook 防止密钥提交。</li>
+</ol></div></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="文件选项卡"><a class="pagination-nav__link pagination-nav__link--next" href="/docs/chats/cloudflare-20251118"><div class="pagination-nav__sublabel">下一页</div><div class="pagination-nav__label">Cloudflare 2025 年 11 月 18 日严重故障总结</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#第一部分codeql-使用指南-通用编程语言" class="table-of-contents__link toc-highlight">第一部分：CodeQL 使用指南 (通用编程语言)</a><ul><li><a href="#1-核心工作原理" class="table-of-contents__link toc-highlight">1. 核心工作原理</a></li><li><a href="#2-环境配置与安装" class="table-of-contents__link toc-highlight">2. 环境配置与安装</a></li><li><a href="#3-操作流程从创建数据库到扫描" class="table-of-contents__link toc-highlight">3. 操作流程：从创建数据库到扫描</a></li></ul></li><li><a href="#第二部分iac-安全扫描指南-terraformdocker-等" class="table-of-contents__link toc-highlight">第二部分：IaC 安全扫描指南 (Terraform/Docker 等)</a><ul><li><a href="#1-codeql-的局限性" class="table-of-contents__link toc-highlight">1. CodeQL 的局限性</a></li><li><a href="#2-推荐的开源替代方案" class="table-of-contents__link toc-highlight">2. 推荐的开源替代方案</a></li></ul></li><li><a href="#第三部分工具选型总结表" class="table-of-contents__link toc-highlight">第三部分：工具选型总结表</a></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2026 Fan's life, Inc. Built with Docusaurus.</div></div></div></footer></div>
+</body>
+</html>
