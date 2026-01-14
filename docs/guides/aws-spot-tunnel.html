@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="zh-Hans" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-guides/aws-spot-tunnel" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.9.2">
+<title data-rh="true">AWS 极致低成本双栈代理搭建手册 (纯 IPv6 版) | Fan&#x27;s life</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://only1zf.com/img/docusaurus-social-card.jpg"><meta data-rh="true" name="twitter:image" content="https://only1zf.com/img/docusaurus-social-card.jpg"><meta data-rh="true" property="og:url" content="https://only1zf.com/docs/guides/aws-spot-tunnel"><meta data-rh="true" property="og:locale" content="zh_Hans"><meta data-rh="true" name="docusaurus_locale" content="zh-Hans"><meta data-rh="true" name="docsearch:language" content="zh-Hans"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="AWS 极致低成本双栈代理搭建手册 (纯 IPv6 版) | Fan&#x27;s life"><meta data-rh="true" name="description" content="这是一个关于在 AWS 上利用 Spot 实例搭建低成本、高匿名、双栈代理服务的完整实施手册。本方案通过纯 IPv6 网络架构彻底免除了 IPv4 地址费用，并利用 Cloudflare 生态实现了全自动化的网络穿透与分流。"><meta data-rh="true" property="og:description" content="这是一个关于在 AWS 上利用 Spot 实例搭建低成本、高匿名、双栈代理服务的完整实施手册。本方案通过纯 IPv6 网络架构彻底免除了 IPv4 地址费用，并利用 Cloudflare 生态实现了全自动化的网络穿透与分流。"><link data-rh="true" rel="icon" href="/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://only1zf.com/docs/guides/aws-spot-tunnel"><link data-rh="true" rel="alternate" href="https://only1zf.com/docs/guides/aws-spot-tunnel" hreflang="zh-Hans"><link data-rh="true" rel="alternate" href="https://only1zf.com/docs/guides/aws-spot-tunnel" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"AWS 极致低成本双栈代理搭建手册 (纯 IPv6 版)","item":"https://only1zf.com/docs/guides/aws-spot-tunnel"}]}</script><link rel="stylesheet" href="/assets/css/styles.1b12b40b.css">
+<script src="/assets/js/runtime~main.73ab007c.js" defer="defer"></script>
+<script src="/assets/js/main.23082fa9.js" defer="defer"></script>
+</head>
+<body class="navigation-with-keyboard">
+<svg style="display: none;"><defs>
+<symbol id="theme-svg-external-link" viewBox="0 0 24 24"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||"light"),document.documentElement.setAttribute("data-theme-choice",t||"light")}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><link rel="preload" as="image" href="/img/logo.svg"><div role="region" aria-label="跳到主要内容"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">跳到主要内容</a></div><nav aria-label="主导航" class="theme-layout-navbar navbar navbar--fixed-top"><div class="navbar__inner"><div class="theme-layout-navbar-left navbar__items"><button aria-label="切换导航栏" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/"><div class="navbar__logo"><img src="/img/logo.svg" alt="My Site Logo" class="themedComponent_mlkZ themedComponent--light_NVdE"><img src="/img/logo.svg" alt="My Site Logo" class="themedComponent_mlkZ themedComponent--dark_xIcU"></div><b class="navbar__title text--truncate">Fan&#x27;s life</b></a><a class="navbar__item navbar__link" href="/blog">Blog</a><a class="navbar__item navbar__link" href="/docs/commentary">读考</a><a class="navbar__item navbar__link" href="/docs/prompts/dict">Prompts</a><a class="navbar__item navbar__link" href="/docs/chats/IaC-sec">Chats</a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/docs/guides/aws-spot-tunnel">Guides</a><a class="navbar__item navbar__link" href="/docs/refs/REST-Client">References</a><a class="navbar__item navbar__link" href="/docs/excerpts/AI/a-common-translation-prompt-for-different-languages">Excerpts</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="system mode" aria-label="切换浅色/暗黑模式（当前为system mode）"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill="currentColor" d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="回到顶部" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="文档侧边栏" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" href="/docs/guides/aws-spot-tunnel"><span title="AWS 极致低成本双栈代理搭建手册 (纯 IPv6 版)" class="linkLabel_WmDU">AWS 极致低成本双栈代理搭建手册 (纯 IPv6 版)</span></a></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="页面路径"><ul class="breadcrumbs"><li class="breadcrumbs__item"><a aria-label="主页面" class="breadcrumbs__link" href="/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link">AWS 极致低成本双栈代理搭建手册 (纯 IPv6 版)</span></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">本页总览</button></div><div class="theme-doc-markdown markdown"><header><h1>AWS 极致低成本双栈代理搭建手册 (纯 IPv6 版)</h1></header>
+<p>这是一个关于在 AWS 上利用 Spot 实例搭建低成本、高匿名、双栈代理服务的完整实施手册。本方案通过<strong>纯 IPv6 网络架构</strong>彻底免除了 IPv4 地址费用，并利用 Cloudflare 生态实现了全自动化的网络穿透与分流。</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-方案概述">1. 方案概述<a href="#1-方案概述" class="hash-link" aria-label="1. 方案概述的直接链接" title="1. 方案概述的直接链接" translate="no">​</a></h2>
+<p>本方案旨在构建一个无需公网 IPv4 地址、无 NAT 网关费用、具备自动故障恢复能力的代理服务。</p>
+<ul>
+<li class=""><strong>核心架构</strong>：AWS Spot Instance (t4g.micro) + Cloudflare Tunnel + Docker (Xray) + WARP。</li>
+<li class=""><strong>成本优势</strong>：利用 Spot 竞价实例和纯 IPv6 网络，费用低廉。</li>
+<li class=""><strong>网络逻辑</strong>：<!-- -->
+<ul>
+<li class=""><strong>入站</strong>：通过 Cloudflare Tunnel (IPv6) 穿透内网，无需公网 IP，无需开放安全组入站端口。</li>
+<li class=""><strong>出站 (IPv6)</strong>：通过 AWS Egress-only Internet Gateway 直连，低延迟访问 Google/Netflix。</li>
+<li class=""><strong>出站 (IPv4)</strong>：通过 Cloudflare WARP 代理模式转发，解决 GitHub/Twitter 等纯 IPv4 站点的访问问题。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-前置准备">2. 前置准备<a href="#2-前置准备" class="hash-link" aria-label="2. 前置准备的直接链接" title="2. 前置准备的直接链接" translate="no">​</a></h2>
+<ol>
+<li class=""><strong>AWS 账户</strong>：已开通 EC2 Spot 实例使用权限。</li>
+<li class=""><strong>Cloudflare 账户</strong>：拥有一个托管在 Cloudflare 上的域名。</li>
+<li class=""><strong>获取 Tunnel Token</strong>：<!-- -->
+<ul>
+<li class="">登录 <a href="https://one.dash.cloudflare.com/" target="_blank" rel="noopener noreferrer" class="">Cloudflare Zero Trust</a> &gt; <strong>Networks</strong> &gt; <strong>Tunnels</strong>。</li>
+<li class="">点击 <strong>Create a tunnel</strong>，选择 <strong>Cloudflared</strong>。</li>
+<li class="">命名隧道（如 <code>aws-proxy</code>），在安装页面复制 Token（以 <code>ey</code> 开头的长字符串），保存备用。</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-aws-网络环境配置-关键">3. AWS 网络环境配置 (关键)<a href="#3-aws-网络环境配置-关键" class="hash-link" aria-label="3. AWS 网络环境配置 (关键)的直接链接" title="3. AWS 网络环境配置 (关键)的直接链接" translate="no">​</a></h2>
+<p>为了实现“零 IPv4 费用”且能联网，必须严格按照以下步骤创建 VPC。此步骤基于 <strong>&quot;Create VPC and more&quot;</strong> 向导配置。</p>
+<ol>
+<li class="">登录 AWS 控制台，进入 <strong>VPC</strong> 服务。</li>
+<li class="">点击 <strong>Create VPC</strong>，选择 <strong>VPC and more</strong>。</li>
+<li class=""><strong>配置参数如下（严禁选错）</strong>：<!-- -->
+<ul>
+<li class=""><strong>IPv4 CIDR block</strong>: <code>10.0.0.0/16</code> (保留默认，内网用，不收费)。</li>
+<li class=""><strong>IPv6 CIDR block</strong>: 选择 <strong>Amazon-provided IPv6 CIDR block</strong> (必须选此项，否则机器无法上网)。</li>
+<li class=""><strong>Tenancy</strong>: Default。</li>
+<li class=""><strong>Number of Availability Zones (AZs)</strong>: <code>1</code> (单可用区即可)。</li>
+<li class=""><strong>Number of public subnets</strong>: <strong><code>0</code></strong> (关键：设为 0 以杜绝 IPv4 公网网关创建)。</li>
+<li class=""><strong>Number of private subnets</strong>: <code>1</code>。</li>
+<li class=""><strong>NAT gateways</strong>: <strong><code>None</code></strong> (关键：NAT 网关非常昂贵，必须选无)。</li>
+<li class=""><strong>VPC endpoints</strong>: <code>S3 Gateway</code> (可选，推荐保留，免费)。</li>
+<li class=""><strong>Egress only internet gateway</strong>: <strong><code>Yes</code></strong> (核心组件：允许 IPv6 单向出站访问互联网，免费)。</li>
+</ul>
+</li>
+<li class="">点击 <strong>Create VPC</strong> 等待资源创建完成。</li>
+<li class=""><strong>修改子网设置</strong>：<!-- -->
+<ul>
+<li class="">进入 <strong>Subnets</strong>，选中刚才创建的 Private Subnet。</li>
+<li class="">点击 <strong>Actions</strong> &gt; <strong>Edit subnet settings</strong>。</li>
+<li class=""><strong>勾选</strong> <code>Enable auto-assign IPv6 address</code>。</li>
+<li class=""><strong>确保未勾选</strong> <code>Enable auto-assign public IPv4 address</code>。</li>
+<li class="">点击保存。</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-创建-spot-实例与部署">4. 创建 Spot 实例与部署<a href="#4-创建-spot-实例与部署" class="hash-link" aria-label="4. 创建 Spot 实例与部署的直接链接" title="4. 创建 Spot 实例与部署的直接链接" translate="no">​</a></h2>
+<p>我们将使用 <strong>User Data</strong> 脚本在实例启动时自动完成所有软件（Docker, Xray, WARP, Cloudflared）的安装与配置。</p>
+<ol>
+<li class="">进入 <strong>EC2 控制台</strong> &gt; <strong>Spot Requests</strong> &gt; <strong>Request Spot Instances</strong>。</li>
+<li class=""><strong>启动模板设置</strong>：<!-- -->
+<ul>
+<li class=""><strong>AMI</strong>: 选择 <strong>Ubuntu Server 24.04 LTS (64-bit Arm)</strong>。<!-- -->
+<ul>
+<li class=""><em>注意：必须选 ARM 架构以匹配 t4g 机型。</em></li>
+</ul>
+</li>
+<li class=""><strong>Instance type</strong>: 选择 <code>t4g.micro</code>。</li>
+<li class=""><strong>Key pair</strong>: 选择你的 SSH 密钥对（虽然我们主要通过 SSM 或串口调试，但建议绑定）。</li>
+<li class=""><strong>Network settings</strong>:<!-- -->
+<ul>
+<li class=""><strong>VPC</strong>: 选择第 3 步创建的 VPC。</li>
+<li class=""><strong>Subnet</strong>: 选择第 3 步配置的子网。</li>
+<li class=""><strong>Auto-assign public IP</strong>: <strong>Disable</strong> (禁用)。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class=""><strong>高级详情 (Advanced details)</strong>：<!-- -->
+<ul>
+<li class="">找到 <strong>User data</strong> 文本框，复制并粘贴以下脚本。</li>
+<li class=""><strong>⚠️ 务必修改脚本开头的 4 个变量。</strong></li>
+</ul>
+</li>
+</ol>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">#!/bin/bash</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"># ==========================================================</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"># AWS Spot (Ubuntu 24.04 ARM64) 终极双栈代理方案</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"># 架构：原生 Cloudflare 工具 + Docker (Xray) + WARP Proxy</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"># ==========================================================</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"># --- [用户配置区 - 请修改以下内容] ---</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">CF_TOKEN=&quot;你的_CLOUDFLARE_TUNNEL_TOKEN&quot;</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">XRAY_PWD=&quot;设置_XRAY_连接密码&quot;</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">WS_PATH=&quot;/你的秘密路径&quot;  # 例如 /trojan-ws</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">ROOT_PASSWORD=&quot;设置_ROOT_登录密码&quot; # 用于 AWS 串口控制台调试</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"># ----------------------------------</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"># 1. 设置系统密码 (开启 Root 和 Ubuntu 用户串口登录权限)</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">echo &quot;root:${ROOT_PASSWORD}&quot; | chpasswd</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">echo &quot;ubuntu:${ROOT_PASSWORD}&quot; | chpasswd</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"># 2. 基础环境安装</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">export DEBIAN_FRONTEND=noninteractive</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">apt-get update -y</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">apt-get install curl ca-certificates gnupg lsb-release docker.io -y</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">systemctl start docker</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">systemctl enable docker</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"># 3. 添加 Cloudflare 官方源 (修复 GPG 签名问题)</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">mkdir -p --mode=0755 /usr/share/keyrings</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"># Cloudflared (Tunnel) 源</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">curl -fsSL https://pkg.cloudflare.com/cloudflare-main.gpg | gpg --dearmor -o /usr/share/keyrings/cloudflare-main.gpg</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">echo &quot;deb [signed-by=/usr/share/keyrings/cloudflare-main.gpg] https://pkg.cloudflare.com/cloudflared $(lsb_release -cs) main&quot; | tee /etc/apt/sources.list.d/cloudflared.list</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"># Cloudflare Client (WARP) 源</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">curl -fsSL https://pkg.cloudflareclient.com/pubkey.gpg | gpg --dearmor -o /usr/share/keyrings/cloudflare-warp-archive-keyring.gpg</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">echo &quot;deb [signed-by=/usr/share/keyrings/cloudflare-warp-archive-keyring.gpg] https://pkg.cloudflareclient.com/ $(lsb_release -cs) main&quot; | tee /etc/apt/sources.list.d/cloudflare-client.list</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"># 4. 安装软件</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">apt-get update -y</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">apt-get install cloudflared cloudflare-warp -y</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"># 5. 配置 WARP (代理模式，监听 127.0.0.1:40000)</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"># 作用：提供 IPv4 出站能力，且不干扰原生 IPv6 路由</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">systemctl enable --now warp-svc</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">sleep 5</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">warp-cli --accept-tos registration new</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">warp-cli --accept-tos mode proxy</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">warp-cli --accept-tos connect</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"># 6. 配置 Xray (Docker 运行，Host 模式)</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"># 作用：Trojan 协议解包、分流 (IPv6 直连 / IPv4 走 WARP)</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">mkdir -p /etc/xray</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">cat &gt; /etc/xray/config.json &lt;&lt;EOF</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">{</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  &quot;log&quot;: { &quot;loglevel&quot;: &quot;warning&quot; },</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  &quot;dns&quot;: { &quot;servers&quot;: [ &quot;2001:4860:4860::8888&quot;, &quot;2001:4860:4860::8844&quot;, &quot;localhost&quot; ] },</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  &quot;routing&quot;: {</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    &quot;domainStrategy&quot;: &quot;IPOnDemand&quot;,</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    &quot;rules&quot;: [</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">      { &quot;type&quot;: &quot;field&quot;, &quot;ip&quot;: [ &quot;::/0&quot; ], &quot;outboundTag&quot;: &quot;direct-v6&quot; },</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">      { &quot;type&quot;: &quot;field&quot;, &quot;ip&quot;: [ &quot;0.0.0.0/0&quot; ], &quot;outboundTag&quot;: &quot;warp-v4&quot; }</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    ]</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  },</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  &quot;inbounds&quot;: [</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    {</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">      &quot;port&quot;: 10000,</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">      &quot;listen&quot;: &quot;0.0.0.0&quot;,</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">      &quot;protocol&quot;: &quot;trojan&quot;,</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">      &quot;settings&quot;: {</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">        &quot;clients&quot;: [ { &quot;password&quot;: &quot;${XRAY_PWD}&quot; } ]</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">      },</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">      &quot;streamSettings&quot;: {</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">        &quot;network&quot;: &quot;ws&quot;,</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">        &quot;wsSettings&quot;: { &quot;path&quot;: &quot;${WS_PATH}&quot; }</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">      }</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    }</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  ],</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  &quot;outbounds&quot;: [</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    { &quot;tag&quot;: &quot;direct-v6&quot;, &quot;protocol&quot;: &quot;freedom&quot;, &quot;settings&quot;: { &quot;domainStrategy&quot;: &quot;UseIPv6&quot; } },</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    { &quot;tag&quot;: &quot;warp-v4&quot;, &quot;protocol&quot;: &quot;socks&quot;, &quot;settings&quot;: { &quot;servers&quot;: [ { &quot;address&quot;: &quot;127.0.0.1&quot;, &quot;port&quot;: 40000 } ] } }</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  ]</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">}</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">EOF</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"># 启动 Xray 容器</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">docker run -d --name xray \</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  --restart always \</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  --network host \</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  -v /etc/xray:/etc/xray \</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  teddysun/xray:latest</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"># 7. 配置 Cloudflare Tunnel (入站入口)</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">cloudflared service install ${CF_TOKEN}</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"># 修正启动参数：强制使用 IPv6 连接 Cloudflare 边缘节点</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">sed -i &#x27;s/tunnel run/tunnel --edge-ip-version 6 run/g&#x27; /etc/systemd/system/cloudflared.service</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">systemctl daemon-reload</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">systemctl restart cloudflared</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">systemctl enable cloudflared</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"># 8. 系统内核优化 (开启 Ping 权限)</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">sysctl -w net.ipv4.ping_group_range=&quot;0 2147483647&quot;</span><br></span></code></pre></div></div>
+<ol start="4">
+<li class=""><strong>Target capacity</strong>: 设置为 <code>1</code>。</li>
+<li class=""><strong>Fleet 维护策略</strong>: 确保勾选 <strong><code>Maintain target capacity</code></strong>。<!-- -->
+<ul>
+<li class=""><em>作用：当 Spot 实例被回收时，AWS 会自动启动新实例并重新运行上述脚本，实现自动复活。</em></li>
+</ul>
+</li>
+<li class="">点击 <strong>Launch</strong>。</li>
+</ol>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="5-cloudflare-后台配置">5. Cloudflare 后台配置<a href="#5-cloudflare-后台配置" class="hash-link" aria-label="5. Cloudflare 后台配置的直接链接" title="5. Cloudflare 后台配置的直接链接" translate="no">​</a></h2>
+<p>实例启动约 2-3 分钟后，Cloudflare Tunnel 状态应显示为 <strong>Healthy</strong>。此时需要配置流量入口。</p>
+<ol>
+<li class="">回到 <a href="https://one.dash.cloudflare.com/" target="_blank" rel="noopener noreferrer" class="">Cloudflare Zero Trust Dashboard</a> &gt; <strong>Tunnels</strong>。</li>
+<li class="">找到你的 Tunnel，点击 <strong>Configure</strong>。</li>
+<li class="">点击 <strong>Public Hostname</strong> 标签页，点击 <strong>Add a public hostname</strong>。</li>
+<li class=""><strong>填写信息</strong>：<!-- -->
+<ul>
+<li class=""><strong>Subdomain</strong>: 输入你想要的前缀（如 <code>proxy</code>）。</li>
+<li class=""><strong>Domain</strong>: 选择你的域名（如 <code>example.com</code>）。</li>
+<li class=""><strong>Service Type</strong>: <strong><code>HTTP</code></strong> (注意不是 HTTPS，也不是 TCP)。</li>
+<li class=""><strong>URL</strong>: <strong><code>localhost:10000</code></strong> (对应 User Data 脚本中 Xray 的监听端口)。</li>
+</ul>
+</li>
+<li class="">点击 <strong>Save hostname</strong>。</li>
+</ol>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="6-客户端连接配置">6. 客户端连接配置<a href="#6-客户端连接配置" class="hash-link" aria-label="6. 客户端连接配置的直接链接" title="6. 客户端连接配置的直接链接" translate="no">​</a></h2>
+<p>请在 Clash、Shadowrocket 或其他支持 Trojan-WS 的客户端中添加节点。</p>
+<ul>
+<li class=""><strong>服务器 (Address)</strong>: <code>proxy.example.com</code> (你刚才绑定的域名)</li>
+<li class=""><strong>端口 (Port)</strong>: <code>443</code></li>
+<li class=""><strong>密码 (Password)</strong>: 脚本中设置的 <code>XRAY_PWD</code></li>
+<li class=""><strong>传输协议 (Network)</strong>: <code>ws</code> (WebSocket)</li>
+<li class=""><strong>路径 (Path)</strong>: 脚本中设置的 <code>WS_PATH</code> (例如 <code>/trojan-ws</code>)</li>
+<li class=""><strong>TLS (SSL)</strong>: <strong>开启 (Enable)</strong></li>
+<li class=""><strong>SNI / Peer Name</strong>: <code>proxy.example.com</code></li>
+<li class=""><strong>UDP 转发</strong>: 开启 (支持 QUIC 访问)</li>
+</ul>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="7-故障排查与维护">7. 故障排查与维护<a href="#7-故障排查与维护" class="hash-link" aria-label="7. 故障排查与维护的直接链接" title="7. 故障排查与维护的直接链接" translate="no">​</a></h2>
+<p>由于机器没有公网 IP，无法直接 SSH。如果遇到连接问题，请使用 <strong>AWS EC2 Serial Console</strong> 进行调试。</p>
+<ol>
+<li class=""><strong>连接控制台</strong>：<!-- -->
+<ul>
+<li class="">AWS EC2 列表 &gt; 选中实例 &gt; 点击 <strong>Connect</strong> &gt; 选择 <strong>EC2 Serial Console</strong> &gt; <strong>Connect</strong>。</li>
+</ul>
+</li>
+<li class=""><strong>登录</strong>：<!-- -->
+<ul>
+<li class="">在黑色终端界面按回车。</li>
+<li class="">输入用户名：<code>root</code>。</li>
+<li class="">输入密码：脚本中设置的 <code>ROOT_PASSWORD</code>。</li>
+</ul>
+</li>
+<li class=""><strong>常用排查命令</strong>：<!-- -->
+<ul>
+<li class="">检查 Docker 容器状态：<code>docker ps</code></li>
+<li class="">查看 Xray 日志：<code>docker logs xray</code></li>
+<li class="">查看 Tunnel 状态：<code>systemctl status cloudflared</code></li>
+<li class="">查看 WARP 状态：<code>warp-cli --accept-tos status</code></li>
+<li class="">测试 IPv6 连通性：<code>curl -6 https://ifconfig.co</code></li>
+<li class="">测试 IPv4 (WARP) 连通性：<code>curl -x socks5h://127.0.0.1:40000 -4 https://ifconfig.co</code></li>
+</ul>
+</li>
+</ol>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="8-安全建议">8. 安全建议<a href="#8-安全建议" class="hash-link" aria-label="8. 安全建议的直接链接" title="8. 安全建议的直接链接" translate="no">​</a></h2>
+<ol>
+<li class=""><strong>路径保护</strong>：不要将 <code>WS_PATH</code> 设为根目录 <code>/</code> 或简单路径，建议使用复杂的随机字符串，防止被主动探测。</li>
+<li class=""><strong>浏览器访问行为</strong>：直接用浏览器访问你的域名会显示 <code>400 Bad Request</code>，这是正常现象（因为 Xray 拒绝非 Trojan 流量），证明服务已生效。</li>
+</ol>
+<p>通过以上步骤，你已成功部署了一套全自动、低成本、高可用的 AWS 双栈代理系统。</p></div></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="文件选项卡"></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#1-方案概述" class="table-of-contents__link toc-highlight">1. 方案概述</a></li><li><a href="#2-前置准备" class="table-of-contents__link toc-highlight">2. 前置准备</a></li><li><a href="#3-aws-网络环境配置-关键" class="table-of-contents__link toc-highlight">3. AWS 网络环境配置 (关键)</a></li><li><a href="#4-创建-spot-实例与部署" class="table-of-contents__link toc-highlight">4. 创建 Spot 实例与部署</a></li><li><a href="#5-cloudflare-后台配置" class="table-of-contents__link toc-highlight">5. Cloudflare 后台配置</a></li><li><a href="#6-客户端连接配置" class="table-of-contents__link toc-highlight">6. 客户端连接配置</a></li><li><a href="#7-故障排查与维护" class="table-of-contents__link toc-highlight">7. 故障排查与维护</a></li><li><a href="#8-安全建议" class="table-of-contents__link toc-highlight">8. 安全建议</a></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2026 Fan's life, Inc. Built with Docusaurus.</div></div></div></footer></div>
+</body>
+</html>
