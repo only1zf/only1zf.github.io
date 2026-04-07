@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="zh-Hans" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-excerpts/dev/claude-code-best-practices" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.9.2">
+<title data-rh="true">Claude Code 的最佳实践 | Fan&#x27;s life</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://only1zf.com/img/docusaurus-social-card.jpg"><meta data-rh="true" name="twitter:image" content="https://only1zf.com/img/docusaurus-social-card.jpg"><meta data-rh="true" property="og:url" content="https://only1zf.com/docs/excerpts/dev/claude-code-best-practices"><meta data-rh="true" property="og:locale" content="zh_Hans"><meta data-rh="true" name="docusaurus_locale" content="zh-Hans"><meta data-rh="true" name="docsearch:language" content="zh-Hans"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Claude Code 的最佳实践 | Fan&#x27;s life"><meta data-rh="true" name="description" content="Claude Code 的最佳实践涵盖了从基础配置到高级自动化和并行扩展的方方面面。以下是根据提供的资料整理的完整指南："><meta data-rh="true" property="og:description" content="Claude Code 的最佳实践涵盖了从基础配置到高级自动化和并行扩展的方方面面。以下是根据提供的资料整理的完整指南："><link data-rh="true" rel="icon" href="/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://only1zf.com/docs/excerpts/dev/claude-code-best-practices"><link data-rh="true" rel="alternate" href="https://only1zf.com/docs/excerpts/dev/claude-code-best-practices" hreflang="zh-Hans"><link data-rh="true" rel="alternate" href="https://only1zf.com/docs/excerpts/dev/claude-code-best-practices" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Claude Code 的最佳实践","item":"https://only1zf.com/docs/excerpts/dev/claude-code-best-practices"}]}</script><link rel="stylesheet" href="/assets/css/styles.1b12b40b.css">
+<script src="/assets/js/runtime~main.bf7a9460.js" defer="defer"></script>
+<script src="/assets/js/main.ab46bb59.js" defer="defer"></script>
+</head>
+<body class="navigation-with-keyboard">
+<svg style="display: none;"><defs>
+<symbol id="theme-svg-external-link" viewBox="0 0 24 24"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||"light"),document.documentElement.setAttribute("data-theme-choice",t||"light")}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><link rel="preload" as="image" href="/img/logo.svg"><div role="region" aria-label="跳到主要内容"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">跳到主要内容</a></div><nav aria-label="主导航" class="theme-layout-navbar navbar navbar--fixed-top"><div class="navbar__inner"><div class="theme-layout-navbar-left navbar__items"><button aria-label="切换导航栏" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/"><div class="navbar__logo"><img src="/img/logo.svg" alt="My Site Logo" class="themedComponent_mlkZ themedComponent--light_NVdE"><img src="/img/logo.svg" alt="My Site Logo" class="themedComponent_mlkZ themedComponent--dark_xIcU"></div><b class="navbar__title text--truncate">Fan&#x27;s life</b></a><a class="navbar__item navbar__link" href="/blog">Blog</a><a class="navbar__item navbar__link" href="/docs/commentary">读考</a><a class="navbar__item navbar__link" href="/docs/prompts/CLAUDE-rust">Prompts</a><a class="navbar__item navbar__link" href="/docs/chats/IaC-sec">Chats</a><a class="navbar__item navbar__link" href="/docs/guides/ai-dev-env">Guides</a><a class="navbar__item navbar__link" href="/docs/refs/REST-Client">References</a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/docs/excerpts/AI/a-common-translation-prompt-for-different-languages">Excerpts</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="system mode" aria-label="切换浅色/暗黑模式（当前为system mode）"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill="currentColor" d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="回到顶部" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="文档侧边栏" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/excerpts/AI/a-common-translation-prompt-for-different-languages"><span title="AI" class="categoryLinkLabel_W154">AI</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role="button" aria-expanded="true" href="/docs/excerpts/dev/claude-code-best-practices"><span title="dev" class="categoryLinkLabel_W154">dev</span></a></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/docs/excerpts/dev/claude-code-best-practices"><span title="Claude Code 的最佳实践" class="linkLabel_WmDU">Claude Code 的最佳实践</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/excerpts/dev/mailgun-ip-warmup"><span title="Automatic IP Warmup" class="linkLabel_WmDU">Automatic IP Warmup</span></a></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/excerpts/games/赛式方法论上"><span title="games" class="categoryLinkLabel_W154">games</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/excerpts/human/一个天才的陨落"><span title="human" class="categoryLinkLabel_W154">human</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/excerpts/insurance/2023年我所推荐的保险产品"><span title="insurance" class="categoryLinkLabel_W154">insurance</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/excerpts/learn/doing-well-courses"><span title="learn" class="categoryLinkLabel_W154">learn</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/excerpts/life/谈谈人生风控"><span title="life" class="categoryLinkLabel_W154">life</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/excerpts/management/华为基本法"><span title="management" class="categoryLinkLabel_W154">management</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/excerpts/money/2021不烦恼指南"><span title="money" class="categoryLinkLabel_W154">money</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/excerpts/tech/EARS"><span title="tech" class="categoryLinkLabel_W154">tech</span></a></div></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/docs/excerpts/苟活的中年人"><span title="苟活的中年人" class="linkLabel_WmDU">苟活的中年人</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/docs/excerpts/血尿酸高和痛风的人吃不得豆腐可以喝白酒"><span title="血尿酸高和痛风的人吃不得豆腐可以喝白酒？华西营养专家说，信你就拐了！" class="linkLabel_WmDU">血尿酸高和痛风的人吃不得豆腐可以喝白酒？华西营养专家说，信你就拐了！</span></a></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="页面路径"><ul class="breadcrumbs"><li class="breadcrumbs__item"><a aria-label="主页面" class="breadcrumbs__link" href="/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">dev</span></li><li class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link">Claude Code 的最佳实践</span></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">本页总览</button></div><div class="theme-doc-markdown markdown"><header><h1>Claude Code 的最佳实践</h1></header>
+<p>Claude Code 的最佳实践涵盖了从基础配置到高级自动化和并行扩展的方方面面。以下是根据提供的资料整理的完整指南：</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="一-核心原则上下文与验证管理">一、 核心原则：上下文与验证管理<a href="#一-核心原则上下文与验证管理" class="hash-link" aria-label="一、 核心原则：上下文与验证管理的直接链接" title="一、 核心原则：上下文与验证管理的直接链接" translate="no">​</a></h3>
+<p>Claude Code 的核心挑战在于其上下文窗口。随着对话增长，性能会因窗口填满而下降。</p>
+<ol>
+<li class=""><strong>激进的上下文管理</strong>：<!-- -->
+<ul>
+<li class=""><strong>原则</strong>：在处理不相关的任务之间使用 <code>/clear</code> 重置上下文。</li>
+<li class=""><strong>示例</strong>：完成登录模块的调试后，在开始开发支付功能前运行 <code>/clear</code>。</li>
+</ul>
+</li>
+<li class=""><strong>提供验证手段</strong>：<!-- -->
+<ul>
+<li class=""><strong>原则</strong>：这是提升效率最关键的一点。为 Claude 提供测试用例、截图或预期输出。</li>
+<li class=""><strong>示例</strong>：不要只说“实现邮件验证”，而要说：“编写 <code>validateEmail</code> 函数，包含测试用例：<code>[email protected]</code> 为真，<code>invalid</code> 为假，运行测试并确认通过”。</li>
+</ul>
+</li>
+<li class=""><strong>使用子代理（Subagents）隔离调查</strong>：<!-- -->
+<ul>
+<li class=""><strong>原则</strong>：让子代理在独立上下文中读取文件，主对话仅接收摘要，防止主上下文被大量文件内容淹没。</li>
+<li class=""><strong>示例</strong>：输入“使用子代理调查身份验证系统如何处理令牌刷新”，让它研究后汇报结果。</li>
+</ul>
+</li>
+</ol>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="二-工作流最佳实践先规划后编码">二、 工作流最佳实践：先规划，后编码<a href="#二-工作流最佳实践先规划后编码" class="hash-link" aria-label="二、 工作流最佳实践：先规划，后编码的直接链接" title="二、 工作流最佳实践：先规划，后编码的直接链接" translate="no">​</a></h3>
+<p>为了避免 Claude 解决错误的问题，应将探索、规划与执行分开。</p>
+<ol>
+<li class=""><strong>四阶段工作流</strong>：<!-- -->
+<ul>
+<li class=""><strong>探索（Explore）</strong>：进入 <strong>Plan Mode</strong>，让 Claude 阅读文件并理解逻辑。</li>
+<li class=""><strong>规划（Plan）</strong>：让 Claude 创建详细的实施方案。使用 <code>Ctrl+G</code> 在编辑器中直接编辑该计划。</li>
+<li class=""><strong>实现（Implement）</strong>：切换回 <strong>Normal Mode</strong> 进行编码，并根据计划进行验证。</li>
+<li class=""><strong>提交（Commit）</strong>：要求 Claude 编写描述性的提交信息并开启 PR。</li>
+<li class=""><strong>示例</strong>：在添加 Google OAuth 时，先让 Claude 在计划模式下分析 <code>src/auth</code> 目录，制定方案并确认后，再开始编写代码。</li>
+</ul>
+</li>
+</ol>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="三-环境配置claudemd-与权限">三、 环境配置：CLAUDE.md 与权限<a href="#三-环境配置claudemd-与权限" class="hash-link" aria-label="三、 环境配置：CLAUDE.md 与权限的直接链接" title="三、 环境配置：CLAUDE.md 与权限的直接链接" translate="no">​</a></h3>
+<p>通过持久化配置，可以让 Claude 自动遵循项目规范。</p>
+<ol>
+<li class=""><strong>编写高效的 CLAUDE.md</strong>：<!-- -->
+<ul>
+<li class=""><strong>内容</strong>：包含项目特有的 Bash 命令、代码风格和工作流规则。</li>
+<li class=""><strong>示例</strong>：在文件中加入“使用 ES modules (import/export) 语法”或“完成后务必运行类型检查”。</li>
+<li class=""><strong>技巧</strong>：通过 <code>/init</code> 自动生成初始版本，并定期精简。</li>
+</ul>
+</li>
+<li class=""><strong>配置权限与沙盒</strong>：<!-- -->
+<ul>
+<li class=""><strong>原则</strong>：使用 <code>/permissions</code> 设置允许列表，减少频繁点击确认的干扰。</li>
+<li class=""><strong>示例</strong>：将 <code>npm run lint</code> 或 <code>git commit</code> 加入允许列表。</li>
+</ul>
+</li>
+</ol>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="四-高效沟通与提示词prompts">四、 高效沟通与提示词（Prompts）<a href="#四-高效沟通与提示词prompts" class="hash-link" aria-label="四、 高效沟通与提示词（Prompts）的直接链接" title="四、 高效沟通与提示词（Prompts）的直接链接" translate="no">​</a></h3>
+<p>精准的指令能显著减少校正次数。</p>
+<ol>
+<li class=""><strong>引用特定上下文</strong>：<!-- -->
+<ul>
+<li class=""><strong>技巧</strong>：使用 <code>@</code> 引用文件，或者粘贴报错截图。</li>
+<li class=""><strong>示例</strong>：输入“参考 <code>@HotDogWidget.php</code> 的模式，实现一个新的日历组件”。</li>
+</ul>
+</li>
+<li class=""><strong>让 Claude 采访你</strong>：<!-- -->
+<ul>
+<li class=""><strong>原则</strong>：在开发大型功能前，先让 Claude 挖掘你没考虑到的细节。</li>
+<li class=""><strong>示例</strong>：输入“我想构建[描述]，请使用 <code>AskUserQuestion</code> 工具深入采访我，包括技术实现、UI/UX 和权衡，直到覆盖所有内容并生成 <code>SPEC.md</code>”。</li>
+</ul>
+</li>
+</ol>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="五-高级扩展技能钩子与-mcp">五、 高级扩展：技能、钩子与 MCP<a href="#五-高级扩展技能钩子与-mcp" class="hash-link" aria-label="五、 高级扩展：技能、钩子与 MCP的直接链接" title="五、 高级扩展：技能、钩子与 MCP的直接链接" translate="no">​</a></h3>
+<p>利用扩展工具打造半自动化的开发环境。</p>
+<ol>
+<li class=""><strong>创建技能（Skills）</strong>：<!-- -->
+<ul>
+<li class=""><strong>原则</strong>：将重复的复杂工作流保存为技能。</li>
+<li class=""><strong>示例</strong>：创建一个 <code>fix-issue</code> 技能，自动执行：查看 issue -&gt; 搜索文件 -&gt; 修复 -&gt; 运行测试 -&gt; 开启 PR。</li>
+</ul>
+</li>
+<li class=""><strong>设置钩子（Hooks）</strong>：<!-- -->
+<ul>
+<li class=""><strong>原则</strong>：在特定事件（如编辑文件后）自动触发脚本。</li>
+<li class=""><strong>示例</strong>：设置一个钩子，在每次编辑 <code>.ts</code> 文件后自动运行 <code>eslint</code> 或 <code>prettier</code>。</li>
+</ul>
+</li>
+<li class=""><strong>合理使用 MCP 服务器</strong>：<!-- -->
+<ul>
+<li class=""><strong>注意</strong>：MCP 会消耗大量上下文。建议配置多个但仅启用必要的（通常少于 10 个）。</li>
+<li class=""><strong>示例</strong>：在处理数据库时启用 Supabase MCP，在其他任务中将其禁用。</li>
+</ul>
+</li>
+</ol>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="六-性能与令牌token优化">六、 性能与令牌（Token）优化<a href="#六-性能与令牌token优化" class="hash-link" aria-label="六、 性能与令牌（Token）优化的直接链接" title="六、 性能与令牌（Token）优化的直接链接" translate="no">​</a></h3>
+<p>对于重度用户，优化 Token 消耗能提升响应速度并降低成本。</p>
+<ol>
+<li class=""><strong>模型分级选择</strong>：<!-- -->
+<ul>
+<li class=""><strong>原则</strong>：根据任务难度分配模型。</li>
+<li class=""><strong>示例</strong>：使用 <strong>Haiku</strong> 进行简单的文件搜索（快速便宜），使用 <strong>Opus</strong> 处理跨 5 个以上文件的复杂架构决策。</li>
+</ul>
+</li>
+<li class=""><strong>模块化代码库</strong>：<!-- -->
+<ul>
+<li class=""><strong>优势</strong>：单个文件较短时，Claude 每次读取消耗的 Token 更少，且不容易“丢失记忆”。</li>
+<li class=""><strong>示例</strong>：将上千行的“巨型文件”重构为数百行的独立模块。</li>
+</ul>
+</li>
+</ol>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="七-并行化与自动化扩展">七、 并行化与自动化扩展<a href="#七-并行化与自动化扩展" class="hash-link" aria-label="七、 并行化与自动化扩展的直接链接" title="七、 并行化与自动化扩展的直接链接" translate="no">​</a></h3>
+<p>当单人效率达到上限时，可以横向扩展 Claude 的工作量。</p>
+<ol>
+<li class=""><strong>利用 Git Worktrees 进行并行开发</strong>：<!-- -->
+<ul>
+<li class=""><strong>技巧</strong>：为每个任务创建独立的工作区，开启多个 Claude 会话。</li>
+<li class=""><strong>示例</strong>：在一个 Worktree 中修复 Bug A，在另一个中重构模块 B，两者互不干扰。</li>
+</ul>
+</li>
+<li class=""><strong>非交互模式（CLI）</strong>：<!-- -->
+<ul>
+<li class=""><strong>示例</strong>：使用 <code>claude -p &quot;List all API endpoints&quot; --output-format json</code> 在 CI 脚本或预提交钩子中自动运行 Claude。</li>
+</ul>
+</li>
+</ol>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="八-持续学习与记忆持久化">八、 持续学习与记忆持久化<a href="#八-持续学习与记忆持久化" class="hash-link" aria-label="八、 持续学习与记忆持久化的直接链接" title="八、 持续学习与记忆持久化的直接链接" translate="no">​</a></h3>
+<p>避免 Claude 在不同会话中重复同样的错误。</p>
+<ol>
+<li class=""><strong>会话总结与恢复</strong>：<!-- -->
+<ul>
+<li class=""><strong>技巧</strong>：在任务跨越多个工作日时，使用 <code>--continue</code> 或 <code>--resume</code> 恢复之前的对话。</li>
+</ul>
+</li>
+<li class=""><strong>自动提取经验</strong>：<!-- -->
+<ul>
+<li class=""><strong>原则</strong>：利用 <strong>Stop 钩子</strong> 在会话结束时分析学到的模式，并保存为新的技能。</li>
+<li class=""><strong>示例</strong>：当解决了一个复杂的特定库 Bug 后，使用 <code>/learn</code> 命令手动将该解决方法提取并保存到 <code>~/.claude/skills/learned/</code> 目录中。</li>
+</ul>
+</li>
+</ol>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="️-常见失败模式应避免">⚠️ 常见失败模式（应避免）<a href="#️-常见失败模式应避免" class="hash-link" aria-label="⚠️ 常见失败模式（应避免）的直接链接" title="⚠️ 常见失败模式（应避免）的直接链接" translate="no">​</a></h3>
+<ul>
+<li class=""><strong>大杂烩会话</strong>：在一个会话里处理多个无关任务，导致上下文被污染。</li>
+<li class=""><strong>无效的重复校正</strong>：如果连续两次纠正无效，应 <code>/clear</code> 并提供更清晰的初始 Prompt。</li>
+<li class=""><strong>过度臃肿的 CLAUDE.md</strong>：包含太多 Claude 能自行发现的信息，导致重要规则被忽略。</li>
+</ul></div></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="文件选项卡"><a class="pagination-nav__link pagination-nav__link--prev" href="/docs/excerpts/AI/探索AIGC在网易严选中的应用"><div class="pagination-nav__sublabel">上一页</div><div class="pagination-nav__label">AIGC|探索AIGC在网易严选中的应用</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/docs/excerpts/dev/mailgun-ip-warmup"><div class="pagination-nav__sublabel">下一页</div><div class="pagination-nav__label">Automatic IP Warmup</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#一-核心原则上下文与验证管理" class="table-of-contents__link toc-highlight">一、 核心原则：上下文与验证管理</a></li><li><a href="#二-工作流最佳实践先规划后编码" class="table-of-contents__link toc-highlight">二、 工作流最佳实践：先规划，后编码</a></li><li><a href="#三-环境配置claudemd-与权限" class="table-of-contents__link toc-highlight">三、 环境配置：CLAUDE.md 与权限</a></li><li><a href="#四-高效沟通与提示词prompts" class="table-of-contents__link toc-highlight">四、 高效沟通与提示词（Prompts）</a></li><li><a href="#五-高级扩展技能钩子与-mcp" class="table-of-contents__link toc-highlight">五、 高级扩展：技能、钩子与 MCP</a></li><li><a href="#六-性能与令牌token优化" class="table-of-contents__link toc-highlight">六、 性能与令牌（Token）优化</a></li><li><a href="#七-并行化与自动化扩展" class="table-of-contents__link toc-highlight">七、 并行化与自动化扩展</a></li><li><a href="#八-持续学习与记忆持久化" class="table-of-contents__link toc-highlight">八、 持续学习与记忆持久化</a></li><li><a href="#️-常见失败模式应避免" class="table-of-contents__link toc-highlight">⚠️ 常见失败模式（应避免）</a></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2026 Fan's life, Inc. Built with Docusaurus.</div></div></div></footer></div>
+</body>
+</html>
