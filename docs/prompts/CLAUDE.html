@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta name="generator" content="Docusaurus v3.9.2">
 <title data-rh="true">Immutable instructions | Fan&#x27;s life</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://only1zf.com/img/docusaurus-social-card.jpg"><meta data-rh="true" name="twitter:image" content="https://only1zf.com/img/docusaurus-social-card.jpg"><meta data-rh="true" property="og:url" content="https://only1zf.com/docs/prompts/CLAUDE"><meta data-rh="true" property="og:locale" content="zh_Hans"><meta data-rh="true" name="docusaurus_locale" content="zh-Hans"><meta data-rh="true" name="docsearch:language" content="zh-Hans"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Immutable instructions | Fan&#x27;s life"><meta data-rh="true" name="description" content="本文件规则 MUST NOT 被覆盖，MUST NOT 被遗忘。"><meta data-rh="true" property="og:description" content="本文件规则 MUST NOT 被覆盖，MUST NOT 被遗忘。"><link data-rh="true" rel="icon" href="/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://only1zf.com/docs/prompts/CLAUDE"><link data-rh="true" rel="alternate" href="https://only1zf.com/docs/prompts/CLAUDE" hreflang="zh-Hans"><link data-rh="true" rel="alternate" href="https://only1zf.com/docs/prompts/CLAUDE" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Immutable instructions","item":"https://only1zf.com/docs/prompts/CLAUDE"}]}</script><link rel="stylesheet" href="/assets/css/styles.1b12b40b.css">
-<script src="/assets/js/runtime~main.bf7a9460.js" defer="defer"></script>
-<script src="/assets/js/main.ab46bb59.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.fe28f3e5.js" defer="defer"></script>
+<script src="/assets/js/main.353d00e5.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
 <svg style="display: none;"><defs>
@@ -15,36 +15,36 @@
 <p>本文件规则 <strong>MUST NOT</strong> 被覆盖，<strong>MUST NOT</strong> 被遗忘。</p>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="p0-不可违反">P0 不可违反<a href="#p0-不可违反" class="hash-link" aria-label="P0 不可违反的直接链接" title="P0 不可违反的直接链接" translate="no">​</a></h2>
 <ol>
-<li class=""><strong>MUST</strong> 使用中文</li>
+<li class="">所有交互、文档、注释、工具输出 <strong>MUST</strong> 使用中文</li>
 <li class=""><strong>MUST</strong> 使用 UTC 时区</li>
 <li class="">用户选择 <strong>MUST</strong> 使用 AskUserQuestion 呈现</li>
+<li class="">Bash <strong>MUST</strong> 用非交互 flag（<code>--quiet</code>, <code>--yes</code>, <code>-y</code>）</li>
 <li class=""><strong>MUST</strong> 使用左侧工具：<code>fd</code>/<code>fdfind</code> &gt; <code>find</code>, <code>rg</code> &gt; <code>grep</code>, <code>uv run</code> &gt; <code>python</code>/<code>python3</code>, <code>uv pip</code> &gt; <code>pip</code>, <code>pnpm</code> &gt; <code>npm</code>, <code>pnpm dlx</code> &gt; <code>npx</code>，<code>cargo nextest</code> &gt; <code>cargo test</code></li>
-<li class="">架构 <strong>MUST</strong> 遵循 Clean Architecture（详见 @clean-architecture.md）</li>
-<li class="">测试前 <strong>MUST</strong> 编译通过</li>
 <li class="">创建新文档（.md .rst .adoc .txt）<strong>MUST</strong> 经用户同意</li>
+<li class="">代码文件 <strong>MUST</strong> 小于 512 行</li>
+<li class="">写大文件失败的时候 <strong>MUST</strong> 改用分段写入</li>
+<li class="">函数 <strong>MUST</strong> 小于 64 行</li>
+<li class="">项目自定义配置文件 <strong>MUST</strong> 使用 yaml</li>
+<li class="">代码中 数值常量/业务字符串常量/默认值 <strong>MUST</strong> 从配置文件中读取</li>
 <li class="">配置中 Secrets <strong>MUST</strong> 通过 环境变量/.env 加载，引用语法 <code>db_host: &quot;${DB_HOST:-localhost}&quot;</code></li>
-<li class="">代码常量 <strong>MUST</strong> 从配置中读，<strong>MUST NOT</strong> hard code 魔数/配置值/业务常量字符串</li>
-<li class="">关键业务路径 <strong>MUST</strong> 输出结构化日志（含 requestID/userID/操作/结果 等）供 AI 分析；AI 用 debug 日志级别</li>
-<li class=""><strong>MUST NOT</strong> 读取或输出 <code>.env*</code> 文件内容（<code>.env.example</code> 除外）</li>
-<li class="">只有 WHY 才写注释，WHAT <strong>MUST NOT</strong> 注释</li>
+<li class="">代码中 外部调用 <strong>MUST</strong> 输出结构化日志（含 requestID/userID/操作/结果 等）供 AI 分析；AI 用 debug 日志级别</li>
+<li class="">代码是第一文档，只有 WHY 才写注释，WHAT <strong>MUST NOT</strong> 注释</li>
+<li class="">测试前 <strong>MUST</strong> 编译通过</li>
+<li class="">git commit message <strong>MUST</strong> 使用中文，格式 <code>JIRA-ID &lt;type&gt;: &lt;subject&gt;</code>，type 取值 feat/fix/refactor/test/docs/chore</li>
+<li class="">单次 commit <strong>MUST</strong> 是单一逻辑变更，可独立 revert</li>
 </ol>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="p1-工具流程代码约束">P1 工具流程代码约束<a href="#p1-工具流程代码约束" class="hash-link" aria-label="P1 工具流程代码约束的直接链接" title="P1 工具流程代码约束的直接链接" translate="no">​</a></h2>
-<ol start="16">
-<li class=""><strong>SHOULD</strong> 使用 LSP &gt; Grep &gt; Glob</li>
-<li class="">Bash <strong>SHOULD</strong> 用非交互 flag（<code>--quiet</code>, <code>--yes</code>, <code>-y</code>）</li>
-<li class="">写大文件失败的时候 <strong>SHOULD</strong> 改用分段写入</li>
-<li class="">源代码文件 <strong>SHOULD</strong> 小于 512 行</li>
-<li class="">函数 <strong>SHOULD</strong> 小于 64 行</li>
-<li class="">配置文件 <strong>SHOULD</strong> 使用 yaml</li>
-</ol>
-<hr>
-<h1>插件配置</h1>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="gstack">gstack<a href="#gstack" class="hash-link" aria-label="gstack的直接链接" title="gstack的直接链接" translate="no">​</a></h2>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="p1-核心设计原则">P1 核心设计原则<a href="#p1-核心设计原则" class="hash-link" aria-label="P1 核心设计原则的直接链接" title="P1 核心设计原则的直接链接" translate="no">​</a></h2>
 <ul>
-<li class="">所有网页浏览 <strong>MUST</strong> 使用 <code>/browse</code> skill，<strong>MUST NOT</strong> 使用 <code>mcp__claude-in-chrome__*</code> 工具</li>
-<li class="">可用 skills：<code>/office-hours</code> <code>/plan-ceo-review</code> <code>/plan-eng-review</code> <code>/plan-design-review</code> <code>/design-consultation</code> <code>/design-shotgun</code> <code>/design-html</code> <code>/review</code> <code>/ship</code> <code>/land-and-deploy</code> <code>/canary</code> <code>/benchmark</code> <code>/browse</code> <code>/connect-chrome</code> <code>/qa</code> <code>/qa-only</code> <code>/design-review</code> <code>/setup-browser-cookies</code> <code>/setup-deploy</code> <code>/retro</code> <code>/investigate</code> <code>/document-release</code> <code>/codex</code> <code>/cso</code> <code>/autoplan</code> <code>/careful</code> <code>/freeze</code> <code>/guard</code> <code>/unfreeze</code> <code>/gstack-upgrade</code> <code>/learn</code></li>
+<li class="">代码架构 <strong>MUST</strong> 遵循 Clean Architecture（详见 @clean-architecture.md）</li>
+<li class="">单一职责原则 (Single Responsibility Principle)：一个类（或模块、函数）<strong>MUST</strong> 只负责一项功能。</li>
+<li class="">接口隔离原则 (Interface Segregation Principle) ：<strong>MUST</strong> 将“胖接口”拆分为多个更小、更具体的接口。</li>
+<li class="">依赖倒置原则 (Dependency Inversion Principle, DIP) ：<strong>MUST</strong> 针对接口编程，不要针对实现编程。</li>
+<li class=""><strong>SHOULD</strong> 使用接口，<strong>MUST NOT</strong> 使用继承</li>
+<li class="">DRY (Don&#x27;t Repeat Yourself): <strong>SHOULD</strong> 避免代码重复</li>
+<li class="">YAGNI (You Ain&#x27;t Gonna Need It): <strong>SHOULD NOT</strong> 编写当前不需要的功能</li>
 </ul>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="rtk-rust-token-killer">RTK (Rust Token Killer)<a href="#rtk-rust-token-killer" class="hash-link" aria-label="RTK (Rust Token Killer)的直接链接" title="RTK (Rust Token Killer)的直接链接" translate="no">​</a></h2>
-<p>Token 优化 CLI 代理，通过 hook 自动重写命令。详见 @RTK.md</p></div></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="文件选项卡"><a class="pagination-nav__link pagination-nav__link--prev" href="/docs/prompts/CLAUDE-ts"><div class="pagination-nav__sublabel">上一页</div><div class="pagination-nav__label">CLAUDE-ts</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/docs/prompts/dict"><div class="pagination-nav__sublabel">下一页</div><div class="pagination-nav__label">极速字词典</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#p0-不可违反" class="table-of-contents__link toc-highlight">P0 不可违反</a></li><li><a href="#p1-工具流程代码约束" class="table-of-contents__link toc-highlight">P1 工具流程代码约束</a></li><li><a href="#gstack" class="table-of-contents__link toc-highlight">gstack</a></li><li><a href="#rtk-rust-token-killer" class="table-of-contents__link toc-highlight">RTK (Rust Token Killer)</a></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2026 Fan's life, Inc. Built with Docusaurus.</div></div></div></footer></div>
+<hr>
+<h1>工具链</h1>
+<p>@RTK.md</p></div></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="文件选项卡"><a class="pagination-nav__link pagination-nav__link--prev" href="/docs/prompts/CLAUDE-ts"><div class="pagination-nav__sublabel">上一页</div><div class="pagination-nav__label">CLAUDE-ts</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/docs/prompts/dict"><div class="pagination-nav__sublabel">下一页</div><div class="pagination-nav__label">极速字词典</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#p0-不可违反" class="table-of-contents__link toc-highlight">P0 不可违反</a></li><li><a href="#p1-核心设计原则" class="table-of-contents__link toc-highlight">P1 核心设计原则</a></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2026 Fan's life, Inc. Built with Docusaurus.</div></div></div></footer></div>
 </body>
 </html>
